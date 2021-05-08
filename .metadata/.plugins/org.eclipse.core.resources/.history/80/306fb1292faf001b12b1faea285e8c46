@@ -1,0 +1,8 @@
+/*
+ * stm32main.c
+ *
+ *  Created on: May 7, 2021
+ *      Author: Laia
+ */
+
+#include "components/masb_comm_s.h" //para tener disponibles las funciones del masb_comm_s
