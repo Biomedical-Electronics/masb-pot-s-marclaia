@@ -102,7 +102,7 @@ int main(void)
  //myHandles.hi2c=&hi2c1;
  // myHandles.hadc=&hadc1;
 
-  setup(); //le pasamos al setup el puntero de myHandles
+  setup(void); //le pasamos al setup el puntero de myHandles
   /* USER CODE END 2 */
 
   /* Infinite loop */
