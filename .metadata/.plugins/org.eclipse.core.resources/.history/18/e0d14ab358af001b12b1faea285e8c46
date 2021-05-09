@@ -67,7 +67,7 @@ _Bool MASB_COMM_S_dataReceived(void) {
 
 }
 
-uint8_t MASB_COMM_S_command(void) { //function that returns the first byte
+uint8_t MASB_COMM_S_command(void) {
 
 	return rxBufferDecoded[0];
 
