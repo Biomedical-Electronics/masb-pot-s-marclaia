@@ -1,0 +1,51 @@
+/**
+  ******************************************************************************
+  * @file		chronoamperometry.c
+  * @brief		Gestión de la cronoamperometría.
+  * @author		Albert Álvarez Carulla
+  * @copyright	Copyright 2020 Albert Álvarez Carulla. All rights reserved.
+  ******************************************************************************
+  */
+
+#include "components/chronoamperometry.h"
+/**
+  ******************************************************************************
+  * @file		chronoamperometry.c
+  * @brief		Gestión de la cronoamperometría.
+  * @author		Albert Álvarez Carulla
+  * @copyright	Copyright 2020 Albert Álvarez Carulla. All rights reserved.
+  ******************************************************************************
+  */
+
+#include "components/chronoamperometry.h"
+
+void CA_meas(double eDC) { //lectura de la CA
+	double Vcell=eDC;
+	double Vdac=1.65-(Vcell/2);
+	uint32_t Vcell_real=0;
+	uint32_t Icell=0;
+	uint16_t txBuffer[1]={}; //buffer de transmisión para escribir el valor de Vcell deseado
+	HAL_I2C_Mem_Write(&hi2c1,);
+	HAL_GPIO_WritePin(BME_CS_GPIO_Port, RELAY_Pin, GPIO_PIN_SET); //CERRAR RELÉ
+	while(ms==FALSE){ //mientras no haya pasado el measurement time
+		while(sp==FALSE){ //mientras no haya pasado el sampling period
+		 }
+		//cuando haya pasado el sampling period:
+		HAL_ADC_Start(&hadc1); // iniciamos la conversion de Vcell real
+		HAL_ADC_PollForConversion(&hadc1, 200); // esperamos que finalice la conversion
+		Vcell_real=HAL_ADC_GetValue(&hadc1);  //guardamos el resultado de la conversion de Vcell real
+		HAL_ADC_Start(&hadc1); // iniciamos la conversion de I
+		HAL_ADC_PollForConversion(&hadc1, 200); // esperamos que finalice la 2a conversión
+		Icell=HAL_ADC_GetValue(&hadc1);  // guardamos el resultado de la 2a conversión
+	}
+
+}
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim1) { //timer 1 sampling period
+	sp = !sp;
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim2) { //timer 1 sampling period
+	ms = !ms;
+}

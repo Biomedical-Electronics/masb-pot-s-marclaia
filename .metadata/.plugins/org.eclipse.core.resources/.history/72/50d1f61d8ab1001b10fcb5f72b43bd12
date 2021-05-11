@@ -1,0 +1,17 @@
+/*
+ * stm32main.c
+ *
+ *  Created on: 30 d’abr. 2021
+ *      Author: Laia
+ */
+#include <components/functions.h>
+#include "components/stm32main.h"
+
+void setup(void) {
+	wakeUp(CTRL_HUM,valHUM);
+	wakeUp(CTRL_MEAS,valMEAS);
+}
+
+void loop(void) {
+	T=readTemp();
+}

@@ -1,0 +1,32 @@
+/*
+ * stm32main.h
+ *
+ *  Created on: May 7, 2021
+ *      Author: Laia
+ */
+
+#ifndef INC_COMPONENTS_STM32MAIN_H_
+#define INC_COMPONENTS_STM32MAIN_H_
+
+#include "stm32f4xx_hal.h"
+
+//variables
+uint16_t CV; //0
+uint16_t CA; //1
+uint16_t IDLE; //2
+uint16_t ESTADO=0;
+
+
+//struct Handles_S {
+  //   UART_HandleTypeDef *huart;
+    // ADC_HandleTypeDef *hadc;
+     //I2C_HandleTypeDef *hi2c;
+	//we should  also add the timers
+ //};
+
+//prototypes, to be used in stm32main.h
+
+void setup(void);
+void loop(void);
+
+#endif /* INC_COMPONENTS_STM32MAIN_H_ */
