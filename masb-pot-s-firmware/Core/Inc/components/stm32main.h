@@ -10,11 +10,11 @@
 
 #include "stm32f4xx_hal.h"
 
-struct Handles_S {
-     UART_HandleTypeDef *huart; //dubtant si posar huar21 o huart aseques
-     ADC_HandleTypeDef *hadc;
-     I2C_HandleTypeDef *hi2c;
- };
+//struct Handles_S {
+  //   UART_HandleTypeDef *huart; //dubtant si posar huar21 o huart aseques
+   //  ADC_HandleTypeDef *hadc;
+    // I2C_HandleTypeDef *hi2c;
+ //};
 
 //prototypes, to be used in stm32main.h
 
