@@ -10,15 +10,23 @@
 
 #include "stm32f4xx_hal.h"
 
+//MACROS
+#define	CV	0
+#define CA	1
+#define IDLE	2
+//variables
+uint32_t ESTADO;
+
 struct Handles_S {
-     UART_HandleTypeDef *huart; //dubtant si posar huar21 o huart aseques
+     UART_HandleTypeDef *huart;
      ADC_HandleTypeDef *hadc;
      I2C_HandleTypeDef *hi2c;
+     TIM_HandleTypeDef *htim;
  };
 
 //prototypes, to be used in stm32main.h
 
-void setup(void);
+void setup(struct Handles_S *handles);
 void loop(void);
 
 #endif /* INC_COMPONENTS_STM32MAIN_H_ */

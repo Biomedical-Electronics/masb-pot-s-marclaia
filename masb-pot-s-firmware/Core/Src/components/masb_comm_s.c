@@ -12,9 +12,8 @@
 #include "components/masb_comm_s.h"
 #include "components/cobs.h"
 
-extern UART_HandleTypeDef huart2; //usamos extern para tener disponible la estructura con la config. de la uart
-extern ADC_HandleTypeDef hadc1;
-extern I2C_HandleTypeDef hi2c1;
+//static UART_HandleTypeDef *huart;
+extern UART_HandleTypeDef huart2; //aixo s'ha de treure quan arreglem lo del while de la funció senddata
 
 uint8_t rxBuffer[UART_BUFF_SIZE] = { 0 },
 		txBuffer[UART_BUFF_SIZE] = { 0 };
@@ -47,6 +46,10 @@ union Long_Converter {
 
 } longConverter;
 
+//void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart) {
+	//huart = newHuart;
+//}
+
 void MASB_COMM_S_waitForMessage(void) {
 
 	dataReceived = FALSE;
@@ -67,7 +70,7 @@ _Bool MASB_COMM_S_dataReceived(void) {
 
 }
 
-uint8_t MASB_COMM_S_command(void) { //function that returns the first byte
+uint8_t MASB_COMM_S_command(void) {
 
 	return rxBufferDecoded[0];
 

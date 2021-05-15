@@ -1634,3 +1634,47 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Laia.LAPTOP-1
 
 !ENTRY org.eclipse.cdt.core 1 0 2021-05-14 18:40:53.358
 !MESSAGE Indexed 'masb-pot-s-firmware' (31 sources, 108 headers) in 5,98 sec: 9.650 declarations; 53.524 references; 5 unresolved inclusions; 44 syntax errors; 160 unresolved names (0,25%)
+!SESSION 2021-05-14 19:22:10.323 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ca_ES
+Framework arguments:  C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-05-14 19:22:17.720
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-05-14 19:22:17.822
+!MESSAGE Log4j initialized with config file C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-05-14 19:22:25.535
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-05-14 19:22:27.111
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-05-14 19:22:32.820
+!MESSAGE Indexed 'masb-pot-s-firmware' (34 sources, 114 headers) in 6,2 sec: 9.808 declarations; 53.675 references; 2 unresolved inclusions; 44 syntax errors; 160 unresolved names (0,25%)
+!SESSION 2021-05-15 13:07:20.293 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ca_ES
+Framework arguments:  C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-05-15 13:07:31.956
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-05-15 13:07:32.087
+!MESSAGE Log4j initialized with config file C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-05-15 13:07:45.295
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-05-15 13:07:46.876
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-05-15 13:07:52.051
+!MESSAGE Indexed 'masb-pot-s-firmware' (34 sources, 114 headers) in 5,56 sec: 9.827 declarations; 53.732 references; 2 unresolved inclusions; 43 syntax errors; 161 unresolved names (0,25%)

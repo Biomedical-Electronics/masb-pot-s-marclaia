@@ -42,9 +42,10 @@ struct Data_S {
 
 // Prototypes.
 
-//void MASB_COMM_S_setComunications(UART_HandleTypeDef *newHuart,
-//		I2C_HandleTypeDef *newHi2c,
-//		ADC_HandleTypeDef *newHadc);
+void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart);
+void MASB_COMM_S_setTimer(UART_HandleTypeDef *newHtim);
+void MASB_COMM_S_setI2c(UART_HandleTypeDef *newHi2c);
+void MASB_COMM_S_setAdc(UART_HandleTypeDef *newHadc);
 void MASB_COMM_S_waitForMessage(void);
 _Bool MASB_COMM_S_dataReceived(void);
 uint8_t MASB_COMM_S_command(void);

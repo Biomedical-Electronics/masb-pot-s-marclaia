@@ -101,12 +101,14 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
- // struct Handles_S myHandles;
- //myHandles.huart = &huart2;
- //myHandles.hi2c=&hi2c1;
- // myHandles.hadc=&hadc1;
 
-  setup(); //le pasamos al setup el puntero de myHandles
+  struct Handles_S myHandles;
+  myHandles.huart = &huart2;
+  myHandles.hi2c=&hi2c1;
+  myHandles.hadc=&hadc1;
+  myHandles.htim=&htim3;
+
+  setup(&myHandles); //le pasamos al setup el puntero de myHandles
   /* USER CODE END 2 */
 
   /* Infinite loop */

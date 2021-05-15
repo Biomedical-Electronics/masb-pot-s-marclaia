@@ -12,6 +12,10 @@
 #define INC_COMPONENTS_CHRONOAMPEROMETRY_H_
 
 #include "stm32f4xx_hal.h"
+#include "main.h"
+
+#define FALSE	0
+#define TRUE	1
 
 struct CA_Configuration_S {
 
@@ -20,5 +24,11 @@ struct CA_Configuration_S {
 	uint32_t measurementTime;
 
 };
+
+//----PROTOTYPES-------
+void CA_meas(struct CA_Configuration_S CA_config);
+void CA_setUart(UART_HandleTypeDef *newHuart);
+void CA_setTimer(TIM_HandleTypeDef *newHtim);
+void CA_setAdc(ADC_HandleTypeDef *newHadc);
 
 #endif /* INC_COMPONENTS_CHRONOAMPEROMETRY_H_ */
