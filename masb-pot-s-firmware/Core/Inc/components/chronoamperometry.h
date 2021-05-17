@@ -13,6 +13,7 @@
 
 #include "stm32f4xx_hal.h"
 #include "main.h"
+#include "components/mcp4725_driver.h"
 
 #define FALSE	0
 #define TRUE	1
@@ -30,5 +31,6 @@ void CA_meas(struct CA_Configuration_S CA_config);
 void CA_setUart(UART_HandleTypeDef *newHuart);
 void CA_setTimer(TIM_HandleTypeDef *newHtim);
 void CA_setAdc(ADC_HandleTypeDef *newHadc);
-
+void CA_setDac(MCP4725_Handle_T newHdac);
+void CA_sendData(void);
 #endif /* INC_COMPONENTS_CHRONOAMPEROMETRY_H_ */

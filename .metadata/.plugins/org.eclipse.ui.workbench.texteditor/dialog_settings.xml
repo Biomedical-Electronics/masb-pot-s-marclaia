@@ -6,10 +6,16 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="dataReceiv"/>
+		<item key="selection" value="sp"/>
 		<list key="findhistory">
-			<item value="datareceiv"/>
+			<item value="sp "/>
+			<item value="sp"/>
+			<item value="SAMPLING"/>
+			<item value="true"/>
 			<item value="huart"/>
+			<item value="command"/>
+			<item value="ca_meas"/>
+			<item value="datareceiv"/>
 			<item value="HAL_UART_Rx"/>
 			<item value="datarece"/>
 			<item value="data"/>
@@ -17,14 +23,9 @@
 			<item value="uart"/>
 			<item value="relay"/>
 			<item value="hdac"/>
-			<item value="dac "/>
-			<item value="dac"/>
-			<item value="huart4"/>
-			<item value="HUART2"/>
-			<item value="HUART"/>
-			<item value="tim"/>
 		</list>
 		<list key="replacehistory">
+			<item value="samplingPeriod"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

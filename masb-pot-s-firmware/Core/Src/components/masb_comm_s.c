@@ -112,7 +112,7 @@ void MASB_COMM_S_sendData(struct Data_S data) {
 	txBuffer[txBufferLenght] = UART_TERM_CHAR;
 	txBufferLenght++;
 
-	//while(!(huart2.gState == HAL_UART_STATE_READY));
+	while(!(huart->gState == HAL_UART_STATE_READY));
 	HAL_UART_Transmit_IT(huart, txBuffer, txBufferLenght);
 }
 

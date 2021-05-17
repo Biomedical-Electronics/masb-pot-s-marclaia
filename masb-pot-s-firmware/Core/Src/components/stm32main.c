@@ -14,7 +14,8 @@
 
 struct CV_Configuration_S cvConfiguration;
 struct CA_Configuration_S caConfiguration;
-
+struct Data_S data;
+MCP4725_Handle_T hdac = NULL;
 
 void setup(struct Handles_S *handles) { //toma como parametro el puntero a la estrucutra Handles_S
 	//-----------DESCOMENTAR QUAN SAPIGUEM PERQUÈ FALLA---------------
@@ -22,6 +23,7 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	CA_setTimer(handles->htim);
     CA_setUart(handles->huart);
     CA_setAdc(handles->hadc);
+
     I2C_Init(handles->hi2c);
 
     //------------POTENCIOMETRO--------------------
@@ -34,12 +36,12 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	AD5280_SetWBResistance(hpot, 10e3f); //10kohms!!
 
 	//------------DAC------------------
-    MCP4725_Handle_T hdac = NULL;
+
     hdac = MCP4725_Init();
     MCP4725_ConfigSlaveAddress(hdac, 0x66);
     MCP4725_ConfigVoltageReference(hdac, 4.0f);
     MCP4725_ConfigWriteFunction(hdac, I2C_Write);
-
+    CA_setDac(hdac);
     MASB_COMM_S_waitForMessage(); //esperamos la llegada de datos
 }
 
@@ -86,29 +88,27 @@ void loop(void) {
  				break;
 
  		}
+ 	    switch(ESTADO){
+ 	    	case CV:
+ 	    		//Obtener siguiente punto (cyclic_voltammetry.c)
+ 	    		//enviar punto al host
+ 	    		//if(ultimo punto = true) seteamos ESTADO=IDLE
 
-       // Una vez procesado los comando, esperamos el siguiente
+ 	    	case CA:
+ 	    		CA_meas(caConfiguration);
+ 	    		ESTADO=IDLE;
+ 	    		break;
+ 	    		//if(ultimo punto = true) seteamos ESTADO=IDLE i break
+
+ 	    	case IDLE:
+ 	    		break;
+
+ 	    }
+       // Una vez procesados los comandos, esperamos el siguiente mensaje
  		MASB_COMM_S_waitForMessage();
  	}
  	// Aqui es donde deberia de ir el codigo de control de las mediciones si se quiere implementar
    // el comando de STOP.
-    switch(ESTADO){
-    	case CV:
-    		//Obtener siguiente punto (cyclic_voltammetry.c)
-    		//enviar punto al host
-    		//if(ultimo punto = true) seteamos ESTADO=IDLE
-
-    	case CA:
-    		CA_meas(caConfiguration);
-    		ESTADO=IDLE;
-    		break;
-    		//if(ultimo punto = true) seteamos ESTADO=IDLE i break
-
-
-    	case IDLE:
-    		break;
-
-    }
 
 }
 
