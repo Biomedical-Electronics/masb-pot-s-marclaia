@@ -18,19 +18,24 @@ struct CA_Configuration_S caConfiguration;
 
 void setup(struct Handles_S *handles) { //toma como parametro el puntero a la estrucutra Handles_S
 	//-----------DESCOMENTAR QUAN SAPIGUEM PERQUÈ FALLA---------------
-    //MASB_COMM_S_setUart(handles->huart);
+    MASB_COMM_S_setUart(handles->huart);
 	CA_setTimer(handles->htim);
     CA_setUart(handles->huart);
     CA_setAdc(handles->hadc);
     I2C_Init(handles->hi2c);
 
-    // Creamos el handle de la libreria.
+    //------------POTENCIOMETRO--------------------
+    //----borrar quan haguem fet es proves-----
+    AD5280_Handle_T hpot = NULL;
+    hpot = AD5280_Init();
+	AD5280_ConfigSlaveAddress(hpot, 0x2C);
+	AD5280_ConfigNominalResistorValue(hpot, 50e3f);
+	AD5280_ConfigWriteFunction(hpot, I2C_Write); // MIRAR I2C!!
+	AD5280_SetWBResistance(hpot, 10e3f); //10kohms!!
+
+	//------------DAC------------------
     MCP4725_Handle_T hdac = NULL;
     hdac = MCP4725_Init();
-
-    // Configuramos la direccion I2C de esclavo, su tension de referencia e indicamos que funcion queremos
-    //que se encargue de la escritura a traves del I2C. Utilizaremos la funcion I2C_Write de la
-    //libreria i2c_lib.
     MCP4725_ConfigSlaveAddress(hdac, 0x66);
     MCP4725_ConfigVoltageReference(hdac, 4.0f);
     MCP4725_ConfigWriteFunction(hdac, I2C_Write);

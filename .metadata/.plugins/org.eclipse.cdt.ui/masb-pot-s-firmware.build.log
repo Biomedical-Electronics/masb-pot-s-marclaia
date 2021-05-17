@@ -1,41 +1,10 @@
-16:48:58 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+19:30:27 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/components/chronoamperometry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/chronoamperometry.d" -MT"Core/Src/components/chronoamperometry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/chronoamperometry.o"
-../Core/Src/components/chronoamperometry.c: In function 'CA_meas':
-../Core/Src/components/chronoamperometry.c:36:27: warning: passing argument 1 of 'MCP4725_SetOutputVoltage' from incompatible pointer type [-Wincompatible-pointer-types]
-  MCP4725_SetOutputVoltage(hdac, Vdac); //seteamos la Vcell a eDC
-                           ^~~~
-In file included from ../Core/Src/components/chronoamperometry.c:12:0:
-../Core/Inc/components/mcp4725_driver.h:21:6: note: expected 'MCP4725_Handle_T {aka struct MCP4725_Handle_S *}' but argument is of type 'struct MCP4725_Handle_S **'
- void MCP4725_SetOutputVoltage(MCP4725_Handle_T self,
-      ^~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/components/chronoamperometry.c:78:28: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
-    HAL_UART_Transmit(huart,&txBuffer,2, 100);
-                            ^
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:404:0,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
-                 from ../Core/Inc/components/chronoamperometry.h:14,
-                 from ../Core/Src/components/chronoamperometry.c:10:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:696:19: note: expected 'uint8_t * {aka unsigned char *}' but argument is of type 'uint32_t (*)[2] {aka long unsigned int (*)[2]}'
- HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
-                   ^~~~~~~~~~~~~~~~~
-../Core/Src/components/chronoamperometry.c:68:13: warning: unused variable 'Vref' [-Wunused-variable]
-    uint32_t Vref=HAL_ADC_GetValue(hadc);  //guardamos el resultado de la conversion de Vcell real
-             ^~~~
-arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: masb-pot-s-firmware.elf
- 
-arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
-arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
 arm-none-eabi-size   masb-pot-s-firmware.elf 
    text	   data	    bss	    dec	    hex	filename
-  19976	    120	   2088	  22184	   56a8	masb-pot-s-firmware.elf
+  20292	    120	   2088	  22500	   57e4	masb-pot-s-firmware.elf
 Finished building: default.size.stdout
-Finished building: masb-pot-s-firmware.list
-Finished building: masb-pot-s-firmware.bin
- 
- 
  
 
-16:49:01 Build Finished. 0 errors, 3 warnings. (took 3s.291ms)
+19:30:28 Build Finished. 0 errors, 0 warnings. (took 962ms)
 

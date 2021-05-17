@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Configura"/>
+		<item key="selection" value="dataReceiv"/>
 		<list key="findhistory">
+			<item value="datareceiv"/>
+			<item value="huart"/>
+			<item value="HAL_UART_Rx"/>
+			<item value="datarece"/>
+			<item value="data"/>
 			<item value="configura"/>
 			<item value="uart"/>
 			<item value="relay"/>
 			<item value="hdac"/>
 			<item value="dac "/>
 			<item value="dac"/>
-			<item value="huart"/>
 			<item value="huart4"/>
 			<item value="HUART2"/>
 			<item value="HUART"/>
 			<item value="tim"/>
-			<item value="huar"/>
-			<item value="set"/>
-			<item value="includ"/>
-			<item value="adc"/>
 		</list>
 		<list key="replacehistory">
 		</list>

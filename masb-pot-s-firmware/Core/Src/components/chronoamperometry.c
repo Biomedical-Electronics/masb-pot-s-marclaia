@@ -75,7 +75,7 @@ void CA_meas(struct CA_Configuration_S CA_config) {
 
 			//enviar valores al host
 			uint32_t txBuffer[2] = {counter,Icell}; //size 2: t, intensitat??? sí
-			HAL_UART_Transmit(huart,&txBuffer,2, 100);
+			HAL_UART_Transmit(huart,&txBuffer,2,100);
 		}
 	}
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_RESET); //abrimos relé

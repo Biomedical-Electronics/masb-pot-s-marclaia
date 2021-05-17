@@ -12,8 +12,7 @@
 #include "components/masb_comm_s.h"
 #include "components/cobs.h"
 
-//static UART_HandleTypeDef *huart;
-extern UART_HandleTypeDef huart2; //aixo s'ha de treure quan arreglem lo del while de la funció senddata
+static UART_HandleTypeDef *huart;
 
 uint8_t rxBuffer[UART_BUFF_SIZE] = { 0 },
 		txBuffer[UART_BUFF_SIZE] = { 0 };
@@ -46,15 +45,15 @@ union Long_Converter {
 
 } longConverter;
 
-//void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart) {
-	//huart = newHuart;
-//}
+void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart) {
+	huart = newHuart;
+}
 
 void MASB_COMM_S_waitForMessage(void) {
 
 	dataReceived = FALSE;
 	rxIndex = 0;
-	HAL_UART_Receive_IT(&huart2, &rxBuffer[rxIndex], 1);
+	HAL_UART_Receive_IT(huart, &rxBuffer[rxIndex], 1);
 
 }
 
@@ -81,12 +80,10 @@ struct CV_Configuration_S MASB_COMM_S_getCvConfiguration(void){
 	struct CV_Configuration_S cvConfiguration;
 
 	cvConfiguration.eBegin = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 1);
-	cvConfiguration.eVertex1 = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 9);
 	cvConfiguration.eVertex2 = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 17);
 	cvConfiguration.cycles = rxBufferDecoded[25];
 	cvConfiguration.scanRate = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 26);
 	cvConfiguration.eStep = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 34);
-
 	return cvConfiguration;
 
 }
@@ -115,8 +112,8 @@ void MASB_COMM_S_sendData(struct Data_S data) {
 	txBuffer[txBufferLenght] = UART_TERM_CHAR;
 	txBufferLenght++;
 
-	while(!(huart2.gState == HAL_UART_STATE_READY));
-	HAL_UART_Transmit_IT(&huart2, txBuffer, txBufferLenght);
+	//while(!(huart2.gState == HAL_UART_STATE_READY));
+	HAL_UART_Transmit_IT(huart, txBuffer, txBufferLenght);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
@@ -125,7 +122,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		dataReceived = TRUE;
 	} else {
 		rxIndex++;
-		HAL_UART_Receive_IT(&huart2, &rxBuffer[rxIndex], 1);
+		HAL_UART_Receive_IT(huart, &rxBuffer[rxIndex], 1);
 	}
 
 }
