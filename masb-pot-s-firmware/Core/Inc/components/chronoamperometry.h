@@ -12,8 +12,12 @@
 #define INC_COMPONENTS_CHRONOAMPEROMETRY_H_
 
 #include "stm32f4xx_hal.h"
-#include "main.h"
 #include "components/mcp4725_driver.h"
+#include "components/masb_comm_s.h"
+#include "components/ad5280_driver.h"
+#include "components/i2c_lib.h"
+#include "components/stm32main.h" //para tener disponibles los punteros del timer, adc, i2c y
+#include "main.h"
 
 #define FALSE	0
 #define TRUE	1
@@ -28,7 +32,6 @@ struct CA_Configuration_S {
 
 //----PROTOTYPES-------
 void CA_meas(struct CA_Configuration_S CA_config);
-void CA_setUart(UART_HandleTypeDef *newHuart);
 void CA_setTimer(TIM_HandleTypeDef *newHtim);
 void CA_setAdc(ADC_HandleTypeDef *newHadc);
 void CA_setDac(MCP4725_Handle_T newHdac);

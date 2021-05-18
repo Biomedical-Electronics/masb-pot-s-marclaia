@@ -8,3 +8,126 @@
   */
 
 #include "components/cyclic_voltammetry.h"
+
+//--------------Definim punteros------------------
+static TIM_HandleTypeDef *htim;
+static ADC_HandleTypeDef *hadc;
+static MCP4725_Handle_T hdac;
+
+//--------------INICIALIZAMOS VARIABLES-------------------
+int32_t Vtia=0;
+int32_t Rtia=10000;
+//inicializamos el contador y el point a 0
+uint32_t point = 0;
+uint32_t counter=0; //será el measurement time cada vez que cogemos un punto
+uint32_t SamplingPeriod;
+extern bool_samplingPeriod;
+
+
+void CV_meas(struct CV_Configuration_S cvConfiguration) {
+
+	//------------LEEMOS LA CONFIGURACIÓN DE LA VOLTOMETRÍA----------------
+	double eBegin = cvConfiguration.eBegin;
+	double eVertex1 = cvConfiguration.eVertex1;
+	double eVertex2 = cvConfiguration.eVertex2;
+	uint8_t cycles = cvConfiguration.cycles;
+	double scanRate = cvConfiguration.scanRate;
+	double eStep =	cvConfiguration.eStep;
+
+	bool_samplingPeriod = FALSE;
+
+	//----------------SETEAMOS EL PERDIODO--------------------------------
+	SamplingPeriod = (eStep/scanRate); //counter period que necesitamos
+
+	__HAL_TIM_SET_AUTORELOAD(htim, SamplingPeriod); //seteamos el periodo
+	__HAL_TIM_SET_COUNTER(htim,0);
+	HAL_TIM_Base_Start_IT(htim); //iniciamos el timer con sus interrupciones
+
+
+	double vCell = eBegin; //Vcell que introduim amb el dac
+	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
+	MCP4725_SetOutputVoltage(hdac, eBegin); //seteamos la Vcell a eDC
+
+	double vObjetivo = eVertex1;
+	uint32_t point = 0;
+	uint8_t counter_cycles = 0;
+
+	//----------------CERRAR RELÉ-------------------------------------
+	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_SET);
+
+	CV_sendData(); //enviamos el primer punto
+
+
+	//-------------ENTRAMOS EN EL LOOP----------------------------------
+	while (counter_cycles <= cycles) {
+		if (bool_samplingPeriod){
+			CV_sendData();
+
+			if (vCell == vObjetivo){
+				if (vObjetivo == eVertex1){
+					vObjetivo = eVertex2;
+					eStep = -eStep; //lo pasamos a negativo
+				}
+				else if (vObjetivo == eVertex2){
+					vObjetivo = eBegin;
+					eStep = -eStep; //lo volvemos a positivo
+				}
+				else{
+					vObjetivo = eVertex1;
+
+					counter_cycles ++;
+				}
+			}
+
+			if ((abs(vCell +eStep))>vObjetivo){
+				MCP4725_SetOutputVoltage(hdac, vObjetivo);
+			} else{
+				vCell = vCell + eStep; //S'hauria de mirar per abaixar
+			}
+		}
+	}
+
+	HAL_TIM_Base_Stop_IT(htim); //paramos el timer
+
+	//---------------------ABRIMOS RELÉ-----------------------------
+	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_RESET);
+}
+
+
+
+void CV_setDac(MCP4725_Handle_T newHdac) {
+	hdac = newHdac; //puntero al handle type de la hdac
+}
+
+void CV_setTimer(TIM_HandleTypeDef *newHtim) {
+	htim = newHtim;
+}
+
+void CV_setAdc(ADC_HandleTypeDef *newHadc) {
+	hadc = newHadc;
+}
+
+void CV_sendData(void){
+	bool_samplingPeriod=FALSE;
+	point++;
+	HAL_ADC_Start(hadc); // iniciamos la conversion de Vcell real
+	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la conversion
+	uint32_t Vref=HAL_ADC_GetValue(hadc);  //guardamos el resultado de la conversion de Vcell real
+	double Vcell_real = (1.65-Vref)*2;
+	HAL_ADC_Start(hadc); // iniciamos la conversion de I
+	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la 2a conversión
+	Vtia=HAL_ADC_GetValue(hadc);  // guardamos el resultado de la 2a conversión
+
+	double iCell =(Vtia-1.65)*2/Rtia;
+
+	//enviar valores al host
+
+	struct Data_S data;
+	data.point = point;
+	data.timeMs = counter; //REVISAR!!!
+	data.voltage = Vcell_real;
+	data.current = iCell;
+	//counter += samplingPeriod;
+
+	MASB_COMM_S_sendData(data);
+}

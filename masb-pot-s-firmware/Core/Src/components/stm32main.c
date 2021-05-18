@@ -21,7 +21,6 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	//-----------DESCOMENTAR QUAN SAPIGUEM PERQUÈ FALLA---------------
     MASB_COMM_S_setUart(handles->huart);
 	CA_setTimer(handles->htim);
-    CA_setUart(handles->huart);
     CA_setAdc(handles->hadc);
 
     I2C_Init(handles->hi2c);
@@ -90,9 +89,10 @@ void loop(void) {
  		}
  	    switch(ESTADO){
  	    	case CV:
- 	    		//Obtener siguiente punto (cyclic_voltammetry.c)
- 	    		//enviar punto al host
- 	    		//if(ultimo punto = true) seteamos ESTADO=IDLE
+ 	    		CV_meas(cvConfiguration);
+ 	    		ESTADO=IDLE;
+ 	    		break;
+ 	    		//if(ultimo punto = true) seteamos ESTADO=IDLE i break
 
  	    	case CA:
  	    		CA_meas(caConfiguration);
