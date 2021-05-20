@@ -15,14 +15,16 @@ static ADC_HandleTypeDef *hadc;
 static MCP4725_Handle_T hdac;
 
 //--------------INICIALIZAMOS VARIABLES-------------------
-int32_t Vtia=0;
-int32_t Rtia=10000;
-//inicializamos el contador y el point a 0
-uint32_t point = 0;
-uint32_t counter=0; //será el measurement time cada vez que cogemos un punto
-uint32_t SamplingPeriod;
-extern bool_samplingPeriod;
 
+//inicializamos el contador y el point a 0
+int32_t Vtia;
+int32_t Rtia;
+uint32_t point;
+uint32_t counter; //será el measurement time cada vez que cogemos un punto
+uint32_t samplingPeriod;
+uint8_t counter_cycles = 0;
+extern bool_samplingPeriod;
+double vCell;
 
 void CV_meas(struct CV_Configuration_S cvConfiguration) {
 
@@ -37,32 +39,46 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	bool_samplingPeriod = FALSE;
 
 	//----------------SETEAMOS EL PERDIODO--------------------------------
-	SamplingPeriod = (eStep/scanRate); //counter period que necesitamos
+	samplingPeriod = (eStep/scanRate)*1000; //counter period que necesitamos, en ms
 
-	__HAL_TIM_SET_AUTORELOAD(htim, SamplingPeriod); //seteamos el periodo
+	__HAL_TIM_SET_AUTORELOAD(htim, samplingPeriod); //seteamos el periodo
 	__HAL_TIM_SET_COUNTER(htim,0);
 	HAL_TIM_Base_Start_IT(htim); //iniciamos el timer con sus interrupciones
 
 
-	double vCell = eBegin; //Vcell que introduim amb el dac
+	vCell = eBegin; //Vcell que introduim amb el dac
 	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
 	MCP4725_SetOutputVoltage(hdac, eBegin); //seteamos la Vcell a eDC
 
 	double vObjetivo = eVertex1;
-	uint32_t point = 0;
-	uint8_t counter_cycles = 0;
+
 
 	//----------------CERRAR RELÉ-------------------------------------
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_SET);
-
+	point = 0;
+	counter=0;
 	CV_sendData(); //enviamos el primer punto
 
 
 	//-------------ENTRAMOS EN EL LOOP----------------------------------
-	while (counter_cycles <= cycles) {
+	while (counter_cycles < cycles) {
 		if (bool_samplingPeriod){
+			if (vObjetivo>0){
+				if ((vCell +eStep)>vObjetivo){
+					//MCP4725_SetOutputVoltage(hdac, vObjetivo);
+					vCell=vObjetivo;
+				} else{
+					vCell = vCell + eStep; //S'hauria de mirar per abaixar
+				}
+			}else{ //si es negativa, como no va el abs
+				if ((vCell +eStep)<vObjetivo){
+					MCP4725_SetOutputVoltage(hdac, vObjetivo);
+					vCell=vObjetivo;
+				} else{
+					vCell = vCell + eStep; //S'hauria de mirar per abaixar
+				}
+			}
 			CV_sendData();
-
 			if (vCell == vObjetivo){
 				if (vObjetivo == eVertex1){
 					vObjetivo = eVertex2;
@@ -74,15 +90,8 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 				}
 				else{
 					vObjetivo = eVertex1;
-
 					counter_cycles ++;
 				}
-			}
-
-			if ((abs(vCell +eStep))>vObjetivo){
-				MCP4725_SetOutputVoltage(hdac, vObjetivo);
-			} else{
-				vCell = vCell + eStep; //S'hauria de mirar per abaixar
 			}
 		}
 	}
@@ -127,7 +136,7 @@ void CV_sendData(void){
 	data.timeMs = counter; //REVISAR!!!
 	data.voltage = Vcell_real;
 	data.current = iCell;
-	//counter += samplingPeriod;
+	counter += samplingPeriod;
 
 	MASB_COMM_S_sendData(data);
 }

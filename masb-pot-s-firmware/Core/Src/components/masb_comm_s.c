@@ -80,6 +80,7 @@ struct CV_Configuration_S MASB_COMM_S_getCvConfiguration(void){
 	struct CV_Configuration_S cvConfiguration;
 
 	cvConfiguration.eBegin = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 1);
+	cvConfiguration.eVertex1 = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 9);
 	cvConfiguration.eVertex2 = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 17);
 	cvConfiguration.cycles = rxBufferDecoded[25];
 	cvConfiguration.scanRate = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 26);

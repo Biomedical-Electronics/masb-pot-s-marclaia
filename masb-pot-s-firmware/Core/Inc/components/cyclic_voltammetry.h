@@ -18,6 +18,7 @@
 #include "components/i2c_lib.h"
 #include "components/stm32main.h" //para tener disponibles los punteros del timer, adc, i2c y
 #include "main.h"
+#include "components/chronoamperometry.h"
 
 struct CV_Configuration_S {
 

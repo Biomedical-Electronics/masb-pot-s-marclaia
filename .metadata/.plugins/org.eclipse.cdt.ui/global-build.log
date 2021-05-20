@@ -1,56 +1,587 @@
-14:04:55 **** Clean-only build of configuration Debug for project masb-pot-s-firmware ****
-make -j3 clean 
-rm -rf *
- 
-14:04:55 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
-make -j3 all 
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Core/Startup/startup_stm32f401retx.d" -MT"Core/Startup/startup_stm32f401retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Startup/startup_stm32f401retx.o" "../Core/Startup/startup_stm32f401retx.s"
-arm-none-eabi-gcc "../Core/Src/components/ad5280_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/ad5280_driver.d" -MT"Core/Src/components/ad5280_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/ad5280_driver.o"
-arm-none-eabi-gcc "../Core/Src/components/chronoamperometry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/chronoamperometry.d" -MT"Core/Src/components/chronoamperometry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/chronoamperometry.o"
-arm-none-eabi-gcc "../Core/Src/components/cobs.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cobs.d" -MT"Core/Src/components/cobs.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cobs.o"
-arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
-arm-none-eabi-gcc "../Core/Src/components/i2c_lib.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/i2c_lib.d" -MT"Core/Src/components/i2c_lib.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/i2c_lib.o"
-../Core/Src/components/cyclic_voltammetry.c:24:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
-   24 | extern bool_samplingPeriod;
-      |        ^~~~~~~~~~~~~~~~~~~
-../Core/Src/components/cyclic_voltammetry.c: In function 'CV_meas':
-../Core/Src/components/cyclic_voltammetry.c:52:11: warning: unused variable 'point' [-Wunused-variable]
-   52 |  uint32_t point = 0;
-      |           ^~~~~
+19:26:47 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
 arm-none-eabi-gcc "../Core/Src/components/masb_comm_s.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/masb_comm_s.d" -MT"Core/Src/components/masb_comm_s.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/masb_comm_s.o"
-arm-none-eabi-gcc "../Core/Src/components/mcp4725_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/mcp4725_driver.d" -MT"Core/Src/components/mcp4725_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/mcp4725_driver.o"
-arm-none-eabi-gcc "../Core/Src/components/stm32main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/stm32main.d" -MT"Core/Src/components/stm32main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/stm32main.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/syscalls.o"
-arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sysmem.o"
-arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
-arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld: Core/Src/components/cyclic_voltammetry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/cyclic_voltammetry.c:18: multiple definition of `Vtia'; Core/Src/components/chronoamperometry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/chronoamperometry.c:19: first defined here
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld: Core/Src/components/cyclic_voltammetry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/cyclic_voltammetry.c:19: multiple definition of `Rtia'; Core/Src/components/chronoamperometry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/chronoamperometry.c:20: first defined here
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld: Core/Src/components/cyclic_voltammetry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/cyclic_voltammetry.c:21: multiple definition of `point'; Core/Src/components/chronoamperometry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/chronoamperometry.c:22: first defined here
-/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.macos64_1.5.0.202011040924/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/bin/ld: Core/Src/components/cyclic_voltammetry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/cyclic_voltammetry.c:22: multiple definition of `counter'; Core/Src/components/chronoamperometry.o:/Users/marcpalomercadenas/Documents/masb-pot-s-marclaia/masb-pot-s-firmware/Debug/../Core/Src/components/chronoamperometry.c:23: first defined here
-collect2: error: ld returned 1 exit status
-make: *** [makefile:66: masb-pot-s-firmware.elf] Error 1
-"make -j3 all" terminated with exit code 2. Build might be incomplete.
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+19:27:17 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+19:29:12 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+Finished building: masb-pot-s-firmware.bin
+ 
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:07:32 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:09:07 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:10:33 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:15:07 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:16:32 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:23:30 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21828	    124	   2256	  24208	   5e90	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:24:07 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21828	    124	   2256	  24208	   5e90	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:25:24 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21836	    124	   2256	  24216	   5e98	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:27:40 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21940	    124	   2256	  24320	   5f00	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:29:06 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21836	    124	   2256	  24216	   5e98	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:36:48 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:37:17 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:40:38 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:41:37 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:44:30 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:48:42 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:49:23 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+22:53:06 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:58:04 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21956	    124	   2256	  24336	   5f10	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+22:59:55 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21932	    124	   2256	  24312	   5ef8	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:02:53 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:17: error: 'vCell' undeclared (first use in this function); did you mean 'iCell'?
+  data.voltage = vCell;
+                 ^~~~~
+                 iCell
+../Core/Src/components/cyclic_voltammetry.c:137:17: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+make: *** [Core/Src/components/subdir.mk:45: Core/Src/components/cyclic_voltammetry.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+23:03:34 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:04:26 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21980	    124	   2264	  24368	   5f30	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:06:01 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:06:53 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:08:07 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:09:15 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:11:33 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:12:28 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:13:46 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:14:28 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:16:43 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:19:49 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:20:41 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:21:29 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:22:06 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:23:21 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:24:05 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:27:49 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21960	    124	   2264	  24348	   5f1c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:31:33 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c:26:8: warning: type defaults to 'int' in declaration of 'bool_samplingPeriod' [-Wimplicit-int]
+ extern bool_samplingPeriod;
+        ^~~~~~~~~~~~~~~~~~~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:125:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21968	    124	   2264	  24356	   5f24	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+23:31:44 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21968	    124	   2264	  24356	   5f24	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:32:36 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21968	    124	   2264	  24356	   5f24	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+23:33:17 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21968	    124	   2264	  24356	   5f24	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 

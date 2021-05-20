@@ -8,6 +8,7 @@
 #include "components/stm32main.h"
 #include "components/masb_comm_s.h" //to have available all the functionality defined in masb_comm_s
 #include "components/chronoamperometry.h"
+#include "components/cyclic_voltammetry.h"
 #include "components/ad5280_driver.h"
 #include "components/mcp4725_driver.h"
 #include "components/i2c_lib.h"
@@ -22,9 +23,9 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
     MASB_COMM_S_setUart(handles->huart);
 	CA_setTimer(handles->htim);
     CA_setAdc(handles->hadc);
-
+	CV_setTimer(handles->htim);
+    CV_setAdc(handles->hadc);
     I2C_Init(handles->hi2c);
-
     //------------POTENCIOMETRO--------------------
     //----borrar quan haguem fet es proves-----
     AD5280_Handle_T hpot = NULL;
@@ -41,6 +42,7 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
     MCP4725_ConfigVoltageReference(hdac, 4.0f);
     MCP4725_ConfigWriteFunction(hdac, I2C_Write);
     CA_setDac(hdac);
+    CV_setDac(hdac);
     MASB_COMM_S_waitForMessage(); //esperamos la llegada de datos
 }
 
