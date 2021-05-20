@@ -23,7 +23,7 @@ uint32_t point;
 uint32_t counter; //será el measurement time cada vez que cogemos un punto
 uint32_t samplingPeriod;
 uint8_t counter_cycles = 0;
-extern bool_samplingPeriod;
+extern _Bool bool_samplingPeriod;
 double vCell;
 
 void CV_meas(struct CV_Configuration_S cvConfiguration) {
@@ -38,16 +38,18 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 
 	bool_samplingPeriod = FALSE;
 
+
 	//----------------SETEAMOS EL PERDIODO--------------------------------
 	samplingPeriod = (eStep/scanRate)*1000; //counter period que necesitamos, en ms
 
-	__HAL_TIM_SET_AUTORELOAD(htim, samplingPeriod); //seteamos el periodo
+	__HAL_TIM_SET_AUTORELOAD(htim, samplingPeriod * 10); //seteamos el periodo
 	__HAL_TIM_SET_COUNTER(htim,0);
 	HAL_TIM_Base_Start_IT(htim); //iniciamos el timer con sus interrupciones
 
 
 	vCell = eBegin; //Vcell que introduim amb el dac
 	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
+	// vcell --> vdac --> vdac->MCP
 	MCP4725_SetOutputVoltage(hdac, eBegin); //seteamos la Vcell a eDC
 
 	double vObjetivo = eVertex1;
@@ -57,23 +59,24 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_SET);
 	point = 0;
 	counter=0;
+	counter_cycles = 0;
 	CV_sendData(); //enviamos el primer punto
 
 
 	//-------------ENTRAMOS EN EL LOOP----------------------------------
 	while (counter_cycles < cycles) {
 		if (bool_samplingPeriod){
-			if (vObjetivo>0){
-				if ((vCell +eStep)>vObjetivo){
+			if (vCell < vObjetivo){
+				if ((vCell + eStep) > vObjetivo){
 					//MCP4725_SetOutputVoltage(hdac, vObjetivo);
-					vCell=vObjetivo;
+					vCell = vObjetivo;
 				} else{
 					vCell = vCell + eStep; //S'hauria de mirar per abaixar
 				}
 			}else{ //si es negativa, como no va el abs
-				if ((vCell +eStep)<vObjetivo){
+				if ((vCell + eStep) < vObjetivo){
 					MCP4725_SetOutputVoltage(hdac, vObjetivo);
-					vCell=vObjetivo;
+					vCell = vObjetivo;
 				} else{
 					vCell = vCell + eStep; //S'hauria de mirar per abaixar
 				}
@@ -90,7 +93,7 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 				}
 				else{
 					vObjetivo = eVertex1;
-					counter_cycles ++;
+					counter_cycles++;
 				}
 			}
 		}
@@ -134,8 +137,10 @@ void CV_sendData(void){
 	struct Data_S data;
 	data.point = point;
 	data.timeMs = counter; //REVISAR!!!
-	data.voltage = Vcell_real;
-	data.current = iCell;
+//	data.voltage = Vcell_real;
+	data.voltage = vCell;
+//	data.current = iCell;
+	data.current = vCell / 10e3;
 	counter += samplingPeriod;
 
 	MASB_COMM_S_sendData(data);
