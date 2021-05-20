@@ -8,6 +8,9 @@
   */
 
 #include "components/cyclic_voltammetry.h"
+#include "math.h"
+
+#define MAX_VAR    0.00001
 
 //--------------Definim punteros------------------
 static TIM_HandleTypeDef *htim;
@@ -82,12 +85,12 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 				}
 			}
 			CV_sendData();
-			if (vCell == vObjetivo){
-				if (vObjetivo == eVertex1){
+			if (fabs(vCell - vObjetivo) < MAX_VAR){
+				if (fabs(vObjetivo - eVertex1) < MAX_VAR){
 					vObjetivo = eVertex2;
 					eStep = -eStep; //lo pasamos a negativo
 				}
-				else if (vObjetivo == eVertex2){
+				else if (fabs(vObjetivo - eVertex2) < MAX_VAR){
 					vObjetivo = eBegin;
 					eStep = -eStep; //lo volvemos a positivo
 				}
