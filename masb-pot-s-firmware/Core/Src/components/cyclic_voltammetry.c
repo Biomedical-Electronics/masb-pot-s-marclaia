@@ -10,22 +10,21 @@
 #include "components/cyclic_voltammetry.h"
 #include "math.h"
 
-#define MAX_VAR    0.00001
+#define MAX_VAR    0.00001 //maximum variation
 
-//--------------Definim punteros------------------
+//--------------PUNTEROS------------------
 static TIM_HandleTypeDef *htim;
 static ADC_HandleTypeDef *hadc;
 static MCP4725_Handle_T hdac;
 
 //--------------INICIALIZAMOS VARIABLES-------------------
 
-//inicializamos el contador y el point a 0
 int32_t Vtia;
 int32_t Rtia;
 uint32_t point;
 uint32_t counter; //será el measurement time cada vez que cogemos un punto
 uint32_t samplingPeriod;
-uint8_t counter_cycles = 0;
+uint8_t counter_cycles;
 extern _Bool bool_samplingPeriod;
 double vCell;
 
@@ -60,66 +59,58 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 
 	//----------------CERRAR RELÉ-------------------------------------
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_SET);
+	//inicializamos los contadores a 0
 	point = 0;
 	counter=0;
 	counter_cycles = 0;
 	CV_sendData(); //enviamos el primer punto
 
-
 	//-------------ENTRAMOS EN EL LOOP----------------------------------
-	while (counter_cycles < cycles) {
-		if (bool_samplingPeriod){
-			if (vCell < vObjetivo){
-				if ((vCell + eStep) > vObjetivo){
-					//MCP4725_SetOutputVoltage(hdac, vObjetivo);
-					vCell = vObjetivo;
-				} else{
-					vCell = vCell + eStep; //S'hauria de mirar per abaixar
-				}
-			}else{ //si es negativa, como no va el abs
-				if ((vCell + eStep) < vObjetivo){
+	while (counter_cycles < cycles) { //mientras el contador de ciclos sea menor al num de ciclos determinado
+		if (bool_samplingPeriod){ //si ha pasado el sampling period
+			if (fabs(vCell + eStep) > fabs(vObjetivo)){ //si sobrepasamos el vobjetivo
 					MCP4725_SetOutputVoltage(hdac, vObjetivo);
-					vCell = vObjetivo;
-				} else{
-					vCell = vCell + eStep; //S'hauria de mirar per abaixar
+					vCell = vObjetivo; //seteamos vCell a vobjetivo
+				} else{ //si no lo sobrepasamos
+					vCell = vCell + eStep; //(de)incrementamos
 				}
-			}
 			CV_sendData();
-			if (fabs(vCell - vObjetivo) < MAX_VAR){
-				if (fabs(vObjetivo - eVertex1) < MAX_VAR){
-					vObjetivo = eVertex2;
+			if (fabs(vCell - vObjetivo) < MAX_VAR){ //si vCell es casi igual a vObjetivo
+				if (fabs(vObjetivo - eVertex1) < MAX_VAR){ //si vCell es casi igual a eVertex1
+					vObjetivo = eVertex2; //seteamos el objetivo al vertice 2
 					eStep = -eStep; //lo pasamos a negativo
 				}
-				else if (fabs(vObjetivo - eVertex2) < MAX_VAR){
+				else if (fabs(vObjetivo - eVertex2) < MAX_VAR){ //si vCell es casi igual a eVertex2
 					vObjetivo = eBegin;
 					eStep = -eStep; //lo volvemos a positivo
 				}
-				else{
+				else{ //si vCell es casi igual a eBegin
 					vObjetivo = eVertex1;
-					counter_cycles++;
+					counter_cycles++; //terminamos ciclo y añadimos uno al contador
 				}
 			}
 		}
-	}
+	} //salimos del bucle cuando counter_cycles sea igual al num de ciclos predeterminado
 
+	//----------------PARAMOS EL TIMER------------------------------
 	HAL_TIM_Base_Stop_IT(htim); //paramos el timer
 
 	//---------------------ABRIMOS RELÉ-----------------------------
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_RESET);
 }
 
-
+//-----------------FUNCIONES--------------------------------
 
 void CV_setDac(MCP4725_Handle_T newHdac) {
 	hdac = newHdac; //puntero al handle type de la hdac
 }
 
 void CV_setTimer(TIM_HandleTypeDef *newHtim) {
-	htim = newHtim;
+	htim = newHtim;//puntero al handle type del timer
 }
 
 void CV_setAdc(ADC_HandleTypeDef *newHadc) {
-	hadc = newHadc;
+	hadc = newHadc;//puntero al handle type del ADC
 }
 
 void CV_sendData(void){
@@ -140,10 +131,10 @@ void CV_sendData(void){
 	struct Data_S data;
 	data.point = point;
 	data.timeMs = counter; //REVISAR!!!
-//	data.voltage = Vcell_real;
-	data.voltage = vCell;
-//	data.current = iCell;
-	data.current = vCell / 10e3;
+	//data.voltage = Vcell_real;
+	data.voltage = vCell; //prueba
+	//data.current = iCell;
+	data.current = vCell / 10e3; //prueba
 	counter += samplingPeriod;
 
 	MASB_COMM_S_sendData(data);
