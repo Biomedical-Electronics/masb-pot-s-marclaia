@@ -1,26 +1,31 @@
-# TÍTULO
+# Proyecto MASB: Programación de un Potenciostato
 
-A parte de estos contenidos, apartados libres
+Marc Palomer i Laia Borrell. Curso 
 
 ## Tamble of contents 
 
-* Intro 
-  * El proyecto
-  * Qué és un potencionstato
-  * En que consisten las medidas, y para qué sirven?
-* Objetivos
+* [Intro](#Hola1)
+  * [El proyecto](#Hola2)
+  * [Qué és un potencionstato](#Hola3)
+  * [En que consisten las medidas](#Hola4)
+    * [Voltometrñia Cíclica (CV)](#Hola5)
+    * [Crono Amperometria (CA)](#Hola6)
+* [Objetivos](#Objetivos)
+* [Metodologia](#Metodologia)
+* [Resultados](#Resultados)
+* [Conclusiones](#Conclusiones)
 
 
 
-## INTRO
+## INTRO<Hola1>
 
 Introduir el ViSense i el porotocol de comuncicaió
 
--en qué consiste el proyecto
+-En qué consiste el proyecto<Hola2>
 
 El proyecto consiste en la programación de un potenciostato a partir de la EV Nucleo-F401R de STMicroelectroncs. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato.
 
-*-qué es un potenciostato*
+*-Qué es un potenciostato y en que consisten las medidas*<Hola3>
 
 Un potenciostato es un dispositivo que mide y amplifica una señal proveniente de una reacción electroquímica, permitiendo medir las concentraciones de un analito 
 
@@ -34,17 +39,21 @@ Las configuraciones típicas para sensores amperométricos, que miden la corrien
 
 
 
--en qué consisten las medidas electroquímicas hechas y para qué sirven
+-En qué consisten las medidas electroquímicas hechas y para qué sirven<Hola4>
 
-En el proyecto hemos programado dos tipos de medidas diferentes, La voltometria Cilcica (CV) i la cronoamperometria (CA)
+En el proyecto hemos programado dos tipos de medidas diferentes, La voltometria Cilcica (CV) i la Crono Amperometria (CA)
 
-*Voltammetría cíclica
-Una Voltammetría Cíclica (CV) es un tipo de medición electroquímica potenciodinámica en la que se aplica un potencial variable a una celda electroquímica mientras se mide la corriente que esta celda proporciona. El potencial entre el electrodo de trabajo (WE) y el de referencia (RE) de la celda varía con el tiempo hasta que alcanza un valor potencial establecido, luego cambia de dirección, realizando lo que se denomina barrido triangular de potencial. Este proceso se repite durante un número establecido de ciclos. El resultado se representa en un voltamograma cíclico, que representa la corriente a través de la celda frente al voltaje aplicado en esta. La CV es una técnica ampliamente utilizada para estudiar las propiedades electroquímicas de un analito en una solución. Una CV proporciona gran cantidad de información sobre el comportamiento químico y físico de un sistema. Además, se pueden observar diferentes fenómenos físicos realizando voltammetrías a diferentes velocidades de exploración (modificando la velocidad de cambio de voltaje con el tiempo).*
+*Voltammetría cíclica <Hola5>
+Una Voltammetría Cíclica (CV) es un tipo de medición electroquímica potenciodinámica en la que se aplica un potencial variable a una celda electroquímica mientras se mide la corriente que esta celda proporciona. El potencial entre el electrodo de trabajo (WE) y el de referencia (RE) de la celda varía con el tiempo hasta que alcanza un valor potencial establecido, luego cambia de dirección, realizando lo que se denomina barrido triangular de potencial. Este proceso se repite durante un número establecido de ciclos. El resultado se representa en un voltamograma cíclico, que representa la corriente a través de la celda frente al voltaje aplicado en esta. La CV es una técnica ampliamente utilizada para estudiar las propiedades electroquímicas de un analito en una solución. Una CV proporciona gran cantidad de información sobre el comportamiento químico y físico de un sistema. Además, se pueden observar diferentes fenómenos físicos realizando voltammetrías a diferentes velocidades de exploración (modificando la velocidad de cambio de voltaje con el tiempo).
 
-*Cronoamperometría
-Una Cronoamperometría (CA) es una técnica electroquímica que transduce la actividad de las especies biológicas de una celda electroquímica en una señal de corriente que cuantifica la concentración del analito de interés. En esta técnica se aplica una señal escalón y se mide la corriente a través de la celda en función del tiempo. Una de las ventajas de esta técnica es que no requiere etiquetado de analito o biorreceptor. El experimento comienza manteniendo la celda a un potencial en el que no ocurre ningún proceso faradaico. Entonces, el potencial se eleva a un valor en el cual ocurre una reacción redox.*
 
-## Objetivos
+
+(Insertar imatge de voltatge vs temps)
+
+*Cronoamperometría <Hola6>
+Una Cronoamperometría (CA) es una técnica electroquímica que transduce la actividad de las especies biomoleculares de una celda electroquímica en una señal de corriente que cuantifica la concentración del analito de interés. En esta técnica se aplica una señal escalón y se mide la corriente a través de la celda en función del tiempo. Una de las ventajas de esta técnica es que no requiere etiquetado de analito o biorreceptor. El experimento comienza manteniendo la celda a un potencial en el que no ocurre ningún proceso faradaico. Entonces, el potencial se eleva a un valor en el cual ocurre una reacción redox.*
+
+## Objetivos<Objetivos>
 
 * Programar un potenciostato portable
 * Controlar la Power Management Unit del modulo front endo del potenciostato (REVISAR)
@@ -52,16 +61,16 @@ Una Cronoamperometría (CA) es una técnica electroquímica que transduce la act
 * Implementar una Voltometría Cíclica
 * Implementar una Crono Amperometria
 
-## METODOLOGÍA
+## METODOLOGÍA<Metodologia>
 
 -diagrama de flujo
 
 -explicación de la aplicación final
 
-## RESULTADOS
+## RESULTADOS<Resultados>
 
 
 
-## CONCLUSIONES
+## CONCLUSIONES<Conclusiones>
 
-N
+  
