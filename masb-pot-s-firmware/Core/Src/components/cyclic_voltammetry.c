@@ -68,12 +68,22 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	//-------------ENTRAMOS EN EL LOOP----------------------------------
 	while (counter_cycles < cycles) { //mientras el contador de ciclos sea menor al num de ciclos determinado
 		if (bool_samplingPeriod){ //si ha pasado el sampling period
-			if (fabs(vCell + eStep) > fabs(vObjetivo)){ //si sobrepasamos el vobjetivo
-					MCP4725_SetOutputVoltage(hdac, vObjetivo);
-					vCell = vObjetivo; //seteamos vCell a vobjetivo
-				} else{ //si no lo sobrepasamos
-					vCell = vCell + eStep; //(de)incrementamos
-				}
+			if (vObjetivo<vCell){ //si estamos decrementando ponemos valor absoluto
+				if (fabs(vCell + eStep) > fabs(vObjetivo)){ //si sobrepasamos el vobjetivo
+						MCP4725_SetOutputVoltage(hdac, vObjetivo);
+						vCell = vObjetivo; //seteamos vCell a vobjetivo
+					} else{ //si no lo sobrepasamos
+						vCell = vCell + eStep; //(de)incrementamos
+					}
+			}
+			if (vObjetivo>vCell) { //si estamos incrementando no poenmos valor absoluto
+				if ((vCell + eStep) > vObjetivo){ //si sobrepasamos el vobjetivo
+						MCP4725_SetOutputVoltage(hdac, vObjetivo);
+						vCell = vObjetivo; //seteamos vCell a vobjetivo
+					} else{ //si no lo sobrepasamos
+						vCell = vCell + eStep; //(de)incrementamos
+					}
+			}
 			CV_sendData();
 			if (fabs(vCell - vObjetivo) < MAX_VAR){ //si vCell es casi igual a vObjetivo
 				if (fabs(vObjetivo - eVertex1) < MAX_VAR){ //si vCell es casi igual a eVertex1
