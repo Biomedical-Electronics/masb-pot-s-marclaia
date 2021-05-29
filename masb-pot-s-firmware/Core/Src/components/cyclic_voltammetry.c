@@ -68,31 +68,32 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	//-------------ENTRAMOS EN EL LOOP----------------------------------
 	while (counter_cycles < cycles) { //mientras el contador de ciclos sea menor al num de ciclos determinado
 		if (bool_samplingPeriod){ //si ha pasado el sampling period
-			if (vObjetivo<vCell){ //si estamos decrementando ponemos valor absoluto
-				if (fabs(vCell + eStep) > fabs(vObjetivo)){ //si sobrepasamos el vobjetivo
+			if (vObjetivo < vCell){ //si estamos decrementando ponemos valor absoluto
+				eStep = -fabs(eStep); //el step ha de ser negatiu
+				if ((vCell + eStep) < vObjetivo){ //si sobrepasamos el vobjetivo
 						MCP4725_SetOutputVoltage(hdac, vObjetivo);
 						vCell = vObjetivo; //seteamos vCell a vobjetivo
-					} else{ //si no lo sobrepasamos
-						vCell = vCell + eStep; //(de)incrementamos
-					}
+				} else{ //si no lo sobrepasamos
+					vCell = vCell + eStep; //(de)incrementamos
+				}
 			}
-			if (vObjetivo>vCell) { //si estamos incrementando no poenmos valor absoluto
+			if (vObjetivo > vCell) { //si estamos incrementando no poenmos valor absoluto
+				eStep=fabs(eStep);
 				if ((vCell + eStep) > vObjetivo){ //si sobrepasamos el vobjetivo
 						MCP4725_SetOutputVoltage(hdac, vObjetivo);
 						vCell = vObjetivo; //seteamos vCell a vobjetivo
-					} else{ //si no lo sobrepasamos
-						vCell = vCell + eStep; //(de)incrementamos
-					}
+				} else{ //si no lo sobrepasamos
+					vCell = vCell + eStep; //(de)incrementamos
+				}
 			}
+
 			CV_sendData();
-			if (fabs(vCell - vObjetivo) < MAX_VAR){ //si vCell es casi igual a vObjetivo
+			if (fabs(vCell - vObjetivo) < MAX_VAR){ //si vCell es igual a vObjetivo
 				if (fabs(vObjetivo - eVertex1) < MAX_VAR){ //si vCell es casi igual a eVertex1
 					vObjetivo = eVertex2; //seteamos el objetivo al vertice 2
-					eStep = -eStep; //lo pasamos a negativo
-				}
-				else if (fabs(vObjetivo - eVertex2) < MAX_VAR){ //si vCell es casi igual a eVertex2
+					}
+				else if (fabs(vObjetivo - eVertex2) < MAX_VAR){ //si vCell es igual a eVertex2
 					vObjetivo = eBegin;
-					eStep = -eStep; //lo volvemos a positivo
 				}
 				else{ //si vCell es casi igual a eBegin
 					vObjetivo = eVertex1;
