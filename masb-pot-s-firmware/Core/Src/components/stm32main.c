@@ -97,24 +97,24 @@ void loop(void) {
 		case CV:
 			CV_meas(cvConfiguration);
 			ESTADO = IDLE;
+			__NOP();
 			break;
 			//if(ultimo punto = true) seteamos ESTADO=IDLE i break
 
 		case CA:
 			CA_meas(caConfiguration);
 			ESTADO = IDLE;
+			__NOP();
 			break;
 			//if(ultimo punto = true) seteamos ESTADO=IDLE i break
 
-		case IDLE:
 		default:
 			break;
 
 		}
 
 	}
-	// Aqui es donde deberia de ir el codigo de control de las mediciones si se quiere implementar
-	// el comando de STOP.
+
 
 }
 

@@ -10,7 +10,6 @@
 #include "components/cyclic_voltammetry.h"
 #include "math.h"
 
-#define MAX_VAR    0.00001 //maximum variation
 
 //--------------PUNTEROS------------------
 static TIM_HandleTypeDef *htim;
@@ -22,7 +21,7 @@ static MCP4725_Handle_T hdac;
 int32_t Vtia;
 int32_t Rtia;
 uint32_t point;
-uint32_t counter; //será el measurement time cada vez que cogemos un punto
+uint32_t counter_cv; //será el measurement time cada vez que cogemos un punto
 uint32_t samplingPeriod;
 uint8_t counter_cycles;
 extern _Bool bool_samplingPeriod;
@@ -61,7 +60,7 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	HAL_GPIO_WritePin(RELAY_GPIO_Port, RELAY_Pin, GPIO_PIN_SET);
 	//inicializamos los contadores a 0
 	point = 0;
-	counter=0;
+	counter_cv=0;
 	counter_cycles = 0;
 	CV_sendData(); //enviamos el primer punto
 
@@ -141,12 +140,12 @@ void CV_sendData(void){
 
 	struct Data_S data;
 	data.point = point;
-	data.timeMs = counter; //REVISAR!!!
+	data.timeMs = counter_cv; //REVISAR!!!
 	//data.voltage = Vcell_real;
 	data.voltage = vCell; //prueba
 	//data.current = iCell;
 	data.current = vCell / 10e3; //prueba
-	counter += samplingPeriod;
+	counter_cv += samplingPeriod;
 
 	MASB_COMM_S_sendData(data);
 }

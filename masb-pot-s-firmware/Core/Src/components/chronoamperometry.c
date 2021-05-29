@@ -22,13 +22,13 @@ int32_t Rtia=10000;
 uint32_t point = 0;
 uint32_t counter=0; //será el measurement time cada vez que cogemos un punto
 uint32_t samplingPeriod;
-uint32_t measurementTime;
+uint32_t measurementTime=0;
 
 void CA_meas(struct CA_Configuration_S CA_config) {
 	//------------LEEMOS LA CONFIGURACIÓN DE LA CRONO----------------
 	double eDC=CA_config.eDC;
-	samplingPeriod=CA_config.samplingPeriodMs;
-	measurementTime=CA_config.measurementTime * 1000;
+	samplingPeriod=CA_config.samplingPeriodMs; //ms
+	measurementTime=CA_config.measurementTime*1000; //segons
 
 	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
 	float Vdac = (float)(1.65-(eDC/2.0)); //pasarle con una funcion
@@ -45,10 +45,11 @@ void CA_meas(struct CA_Configuration_S CA_config) {
 
 	HAL_TIM_Base_Start_IT(htim); //iniciamos el timer con sus interrupciones
 
+	point=0;
+	counter=0;
 	CA_sendData(); //enviamos el primer punto
 
 	//-------------ENTRAMOS EN EL LOOP---------------
-
 	while (counter<=measurementTime) {
 		if (bool_samplingPeriod==TRUE){
 			//cuando haya pasado el sampling period:

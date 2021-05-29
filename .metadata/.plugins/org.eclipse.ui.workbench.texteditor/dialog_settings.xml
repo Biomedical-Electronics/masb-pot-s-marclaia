@@ -6,8 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="CV_send"/>
+		<item key="selection" value="measur"/>
 		<list key="findhistory">
+			<item value="measur"/>
+			<item value="measurem"/>
+			<item value="counter"/>
+			<item value="count"/>
+			<item value="measu"/>
 			<item value="cv_send"/>
 			<item value="evert"/>
 			<item value="vcell"/>
@@ -18,21 +23,16 @@
 			<item value="SAMPLING"/>
 			<item value="true"/>
 			<item value="huart"/>
-			<item value="command"/>
-			<item value="ca_meas"/>
-			<item value="datareceiv"/>
-			<item value="HAL_UART_Rx"/>
-			<item value="datarece"/>
 		</list>
 		<list key="replacehistory">
 			<item value="samplingPeriod"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1179"/>
-		<item key="DIALOG_Y_ORIGIN" value="464"/>
+		<item key="DIALOG_X_ORIGIN" value="658"/>
+		<item key="DIALOG_Y_ORIGIN" value="142"/>
 		<item key="DIALOG_WIDTH" value="336"/>
-		<item key="DIALOG_HEIGHT" value="222"/>
+		<item key="DIALOG_HEIGHT" value="527"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 </section>

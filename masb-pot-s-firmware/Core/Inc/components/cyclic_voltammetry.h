@@ -11,6 +11,8 @@
 #ifndef INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_
 #define INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_
 
+#define MAX_VAR    0.00001 //maximum variation
+
 #include "stm32f4xx_hal.h"
 #include "components/masb_comm_s.h"
 #include "components/ad5280_driver.h"
