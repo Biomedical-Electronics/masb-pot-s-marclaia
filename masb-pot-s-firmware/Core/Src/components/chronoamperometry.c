@@ -8,14 +8,7 @@
   */
 
 #include "components/chronoamperometry.h"
-#include "components/masb_comm_s.h"
-#include "components/ad5280_driver.h"
-#include "components/mcp4725_driver.h"
-#include "components/i2c_lib.h"
-#include "components/stm32main.h" //para tener disponibles los punteros del timer, adc, i2c y
-#include "main.h"
 
-static UART_HandleTypeDef *huart;
 static TIM_HandleTypeDef *htim;
 static ADC_HandleTypeDef *hadc;
 static MCP4725_Handle_T hdac;
@@ -70,10 +63,6 @@ void CA_meas(struct CA_Configuration_S CA_config) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim3) { //timer 1 sampling period
 	bool_samplingPeriod = TRUE;
-}
-
-void CA_setUart(UART_HandleTypeDef *newHuart) {
-	huart = newHuart; //puntero al handle type de la huart
 }
 
 void CA_setDac(MCP4725_Handle_T newHdac) {

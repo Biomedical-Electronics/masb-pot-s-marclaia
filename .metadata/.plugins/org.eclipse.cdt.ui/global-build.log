@@ -1,6 +1,13 @@
-20:17:24 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+18:53:07 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/components/chronoamperometry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/chronoamperometry.d" -MT"Core/Src/components/chronoamperometry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/chronoamperometry.o"
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
 arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: masb-pot-s-firmware.elf
  
@@ -8,10 +15,346 @@ arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.lis
 arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
 arm-none-eabi-size   masb-pot-s-firmware.elf 
    text	   data	    bss	    dec	    hex	filename
-  20564	    124	   2240	  22928	   5990	masb-pot-s-firmware.elf
+  22184	    124	   2264	  24572	   5ffc	masb-pot-s-firmware.elf
 Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+18:53:46 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22184	    124	   2264	  24572	   5ffc	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+Finished building: masb-pot-s-firmware.list
+ 
+ 
+18:58:06 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22184	    124	   2264	  24572	   5ffc	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+19:02:21 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_meas':
+../Core/Src/components/cyclic_voltammetry.c:96:6: error: expected ';' before '}' token
+      }
+      ^
+../Core/Src/components/cyclic_voltammetry.c:105:6: error: expected ';' before '}' token
+      }
+      ^
+../Core/Src/components/cyclic_voltammetry.c:114:6: error: expected ';' before '}' token
+      }
+      ^
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:153:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:148:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+make: *** [Core/Src/components/subdir.mk:45: Core/Src/components/cyclic_voltammetry.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+19:02:54 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:153:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:148:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22448	    124	   2264	  24836	   6104	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+Finished building: masb-pot-s-firmware.list
+ 
+ 
+19:06:50 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_meas':
+../Core/Src/components/cyclic_voltammetry.c:82:5: error: expected ';' before 'if'
+     if ((vCell + eStep) > vObjetivo){ //si sobrepasamos el vobjetivo
+     ^~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+make: *** [Core/Src/components/subdir.mk:45: Core/Src/components/cyclic_voltammetry.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+19:06:58 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_meas':
+../Core/Src/components/cyclic_voltammetry.c:82:5: error: expected ';' before 'if'
+     if ((vCell + eStep) > vObjetivo){ //si sobrepasamos el vobjetivo
+     ^~
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+make: *** [Core/Src/components/subdir.mk:45: Core/Src/components/cyclic_voltammetry.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+19:07:10 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+19:11:04 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+19:12:55 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+19:14:53 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
 Finished building: masb-pot-s-firmware.list
 Finished building: masb-pot-s-firmware.bin
  
  
+19:15:37 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+19:15:51 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+19:19:40 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:138:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:133:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+Finished building: masb-pot-s-firmware.list
+ 
+ 
+19:19:54 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+20:04:33 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:137:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:132:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+16:39:24 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:139:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:134:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+16:46:54 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:139:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:134:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22200	    124	   2264	  24588	   600c	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+16:55:04 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/components/cyclic_voltammetry.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/components/cyclic_voltammetry.d" -MT"Core/Src/components/cyclic_voltammetry.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/components/cyclic_voltammetry.o"
+../Core/Src/components/cyclic_voltammetry.c: In function 'CV_sendData':
+../Core/Src/components/cyclic_voltammetry.c:139:9: warning: unused variable 'iCell' [-Wunused-variable]
+  double iCell =(Vtia-1.65)*2/Rtia;
+         ^~~~~
+../Core/Src/components/cyclic_voltammetry.c:134:9: warning: unused variable 'Vcell_real' [-Wunused-variable]
+  double Vcell_real = (1.65-Vref)*2;
+         ^~~~~~~~~~
+arm-none-eabi-gcc -o "masb-pot-s-firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Laia.LAPTOP-1BS820LB\Desktop\4t\2n quatri\microcontroladors\masb_workspace_Laia\masb-pot-s-marclaia\masb-pot-s-firmware\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="masb-pot-s-firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: masb-pot-s-firmware.elf
+ 
+arm-none-eabi-objdump -h -S  masb-pot-s-firmware.elf  > "masb-pot-s-firmware.list"
+arm-none-eabi-objcopy  -O binary  masb-pot-s-firmware.elf  "masb-pot-s-firmware.bin"
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22168	    124	   2264	  24556	   5fec	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: masb-pot-s-firmware.bin
+ 
+Finished building: masb-pot-s-firmware.list
+ 
+16:56:06 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+make -j4 all 
+arm-none-eabi-size   masb-pot-s-firmware.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22168	    124	   2264	  24556	   5fec	masb-pot-s-firmware.elf
+Finished building: default.size.stdout
  
