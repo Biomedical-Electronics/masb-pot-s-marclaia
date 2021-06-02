@@ -51,7 +51,7 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	vCell = eBegin; //Vcell que introduim amb el dac
 	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
 	// vcell --> vdac --> vdac->MCP
-	MCP4725_SetOutputVoltage(hdac, eBegin); //seteamos la Vcell a eDC
+	MCP4725_SetOutputVoltage(hdac, (eBegin/2.0)+2.0); //seteamos la Vcell a eDC
 
 	double vObjetivo = eVertex1;
 
@@ -70,7 +70,6 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 			if (vObjetivo < vCell){ //si estamos decrementando ponemos valor absoluto
 				eStep = -fabs(eStep); //el step ha de ser negatiu
 				if ((vCell + eStep) < vObjetivo){ //si sobrepasamos el vobjetivo
-						MCP4725_SetOutputVoltage(hdac, vObjetivo);
 						vCell = vObjetivo; //seteamos vCell a vobjetivo
 				} else{ //si no lo sobrepasamos
 					vCell = vCell + eStep; //(de)incrementamos
@@ -79,7 +78,6 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 			if (vObjetivo > vCell) { //si estamos incrementando no poenmos valor absoluto
 				eStep=fabs(eStep);
 				if ((vCell + eStep) > vObjetivo){ //si sobrepasamos el vobjetivo
-						MCP4725_SetOutputVoltage(hdac, vObjetivo);
 						vCell = vObjetivo; //seteamos vCell a vobjetivo
 				} else{ //si no lo sobrepasamos
 					vCell = vCell + eStep; //(de)incrementamos
@@ -87,6 +85,7 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 			}
 
 			CV_sendData();
+			MCP4725_SetOutputVoltage(hdac, (vCell/2.0)+2.0);
 			if (fabs(vCell - vObjetivo) < MAX_VAR){ //si vCell es igual a vObjetivo
 				if (fabs(vObjetivo - eVertex1) < MAX_VAR){ //si vCell es casi igual a eVertex1
 					vObjetivo = eVertex2; //seteamos el objetivo al vertice 2
@@ -129,22 +128,24 @@ void CV_sendData(void){
 	HAL_ADC_Start(hadc); // iniciamos la conversion de Vcell real
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la conversion
 	uint32_t Vref=HAL_ADC_GetValue(hadc);  //guardamos el resultado de la conversion de Vcell real
-	double Vcell_real = (1.65-Vref)*2;
+	double Vref_dCV = ((double)Vref)/4095.0*3.3;
+	double Vcell_real = - ((Vref_dCV*8.0/3.3)-4.0);
+
 	HAL_ADC_Start(hadc); // iniciamos la conversion de I
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la 2a conversión
-	Vtia=HAL_ADC_GetValue(hadc);  // guardamos el resultado de la 2a conversión
-
-	double iCell =(Vtia-1.65)*2/Rtia;
+	uint32_t Vtia=HAL_ADC_GetValue(hadc);  // guardamos el resultado de la 2a conversión
+	double Vtia_dVC = ((double)Vtia)/4095.0*3.3;
+	double iCell =((Vtia_dVC*2.42)-4)/Rtia;
 
 	//enviar valores al host
 
 	struct Data_S data;
 	data.point = point;
-	data.timeMs = counter_cv; //REVISAR!!!
-	//data.voltage = Vcell_real;
-	data.voltage = vCell; //prueba
-	//data.current = iCell;
-	data.current = vCell / 10e3; //prueba
+	data.timeMs = counter_cv;
+	data.voltage = Vcell_real;
+	//data.voltage = vCell; //prueba
+	data.current = iCell;
+	//data.current = iCell / 10e3; //prueba
 	counter_cv += samplingPeriod;
 
 	MASB_COMM_S_sendData(data);

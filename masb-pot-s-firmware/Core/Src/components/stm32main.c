@@ -19,7 +19,9 @@ struct Data_S data;
 MCP4725_Handle_T hdac = NULL;
 
 void setup(struct Handles_S *handles) { //toma como parametro el puntero a la estrucutra Handles_S
-	//-----------DESCOMENTAR QUAN SAPIGUEM PERQUÈ FALLA---------------
+	HAL_GPIO_WritePin(EN_GPIO_Port, EN_Pin, GPIO_PIN_SET);
+	HAL_Delay(500);
+
 	MASB_COMM_S_setUart(handles->huart);
 	CA_setTimer(handles->htim);
 	CA_setAdc(handles->hadc);
@@ -33,7 +35,7 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	AD5280_ConfigSlaveAddress(hpot, 0x2C);
 	AD5280_ConfigNominalResistorValue(hpot, 50e3f);
 	AD5280_ConfigWriteFunction(hpot, I2C_Write); // MIRAR I2C!!
-	AD5280_SetWBResistance(hpot, 10e3f); //10kohms!!
+	AD5280_SetWBResistance(hpot, 50e3f); //50kohms!!
 
 	//------------DAC------------------
 
