@@ -17,7 +17,7 @@ volatile _Bool bool_samplingPeriod=FALSE;
 
 //--------------INICIALIZAMOS VARIABLES-------------------
 int32_t Vtia=0;
-int32_t Rtia=10000;
+int32_t Rtia=50000;
 //inicializamos el contador y el point a 0
 uint32_t point = 0;
 uint32_t counter=0; //será el measurement time cada vez que cogemos un punto
