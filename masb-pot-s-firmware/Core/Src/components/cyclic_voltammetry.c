@@ -8,6 +8,7 @@
   */
 
 #include "components/cyclic_voltammetry.h"
+#include "components/formulas.h"
 #include "math.h"
 
 
@@ -128,14 +129,12 @@ void CV_sendData(void){
 	HAL_ADC_Start(hadc); // iniciamos la conversion de Vcell real
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la conversion
 	uint32_t Vref=HAL_ADC_GetValue(hadc);  //guardamos el resultado de la conversion de Vcell real
-	double Vref_dCV = ((double)Vref)/4095.0*3.3;
-	double Vcell_real = - ((Vref_dCV*8.0/3.3)-4.0);
+	double Vcell_real = calculateVrefVoltage(Vref);
 
 	HAL_ADC_Start(hadc); // iniciamos la conversion de I
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la 2a conversión
 	uint32_t Vtia=HAL_ADC_GetValue(hadc);  // guardamos el resultado de la 2a conversión
-	double Vtia_dVC = ((double)Vtia)/4095.0*3.3;
-	double iCell =((Vtia_dVC*2.42)-4)/Rtia;
+	double iCell = calculateIcellCurrent(Vtia);
 
 	//enviar valores al host
 

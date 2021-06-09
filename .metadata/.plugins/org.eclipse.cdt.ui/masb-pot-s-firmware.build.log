@@ -1,10 +1,10 @@
-17:30:49 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
+13:13:18 **** Incremental Build of configuration Debug for project masb-pot-s-firmware ****
 make -j4 all 
 arm-none-eabi-size   masb-pot-s-firmware.elf 
    text	   data	    bss	    dec	    hex	filename
-  24104	    124	   2264	  26492	   677c	masb-pot-s-firmware.elf
+  24000	    120	   2264	  26384	   6710	masb-pot-s-firmware.elf
 Finished building: default.size.stdout
  
 
-17:30:49 Build Finished. 0 errors, 0 warnings. (took 540ms)
+13:13:19 Build Finished. 0 errors, 0 warnings. (took 952ms)
 

@@ -8,6 +8,7 @@
   */
 
 #include "components/chronoamperometry.h"
+#include "components/formulas.h"
 
 static TIM_HandleTypeDef *htim;
 static ADC_HandleTypeDef *hadc;
@@ -31,7 +32,7 @@ void CA_meas(struct CA_Configuration_S CA_config) {
 	measurementTime=CA_config.measurementTime*1000; //segons
 
 	//----------SETEAMOS LA TENSIÓN DEL DAC-----------------------------
-	float Vdac = eDC/2.0+2.0; //pasarle con una funcion
+	float Vdac = calculateDacOutputVoltage(eDC); //pasarle con una funcion
 	MCP4725_SetOutputVoltage(hdac, Vdac); //seteamos la Vcell a eDC
 
 	//----------------CERRAR RELÉ-------------------------------------
@@ -85,14 +86,12 @@ void CA_sendData(void){
 	HAL_ADC_Start(hadc); // iniciamos la conversion de Vcell real
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la conversion
 	uint32_t Vref=HAL_ADC_GetValue(hadc);  //guardamos el resultado de la conversion de Vcell real
-	double Vref_d = ((double)Vref)/4095.0*3.3;
-	double vCell = - ((Vref_d*8.0/3.3)-4.0);
+	double vCell = calculateVrefVoltage(Vref);
 
 	HAL_ADC_Start(hadc); // iniciamos la conversion de I
 	HAL_ADC_PollForConversion(hadc, 200); // esperamos que finalice la 2a conversión
 	uint32_t Vtia=HAL_ADC_GetValue(hadc);  // guardamos el resultado de la 2a conversión
-	double Vtia_d = ((double)Vtia)/4095.0*3.3;
-	double iCell =((Vtia_d*2.42)-4.0)/Rtia;
+	double iCell = calculateIcellCurrent(Vtia);
 
 	//enviar valores al host
 

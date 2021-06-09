@@ -11853,3 +11853,21 @@
 2021-06-02 17:30:50,380 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
 2021-06-02 17:30:50,398 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :3:117: The reference to entity "arubalp" must end with the ';' delimiter.
 2021-06-02 17:30:50,398 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-06-09 12:45:03,979 [INFO] Activator:170 - 
+
+
+2021-06-09 12:45:03,979 [INFO] Activator:171 - !SESSION log4j initialized
+2021-06-09 12:52:07,931 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+2021-06-09 12:52:07,931 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-06-09 12:52:07,977 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+2021-06-09 12:52:07,985 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-06-09 12:52:08,034 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] [Fatal Error] :1:10: DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+2021-06-09 12:52:08,034 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 
+2021-06-09 12:54:37,503 [INFO] Activator:170 - 
+
+
+2021-06-09 12:54:37,507 [INFO] Activator:171 - !SESSION log4j initialized
+2021-06-09 13:17:23,568 [INFO] Activator:170 - 
+
+
+2021-06-09 13:17:23,571 [INFO] Activator:171 - !SESSION log4j initialized

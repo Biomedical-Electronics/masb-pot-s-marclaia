@@ -27,14 +27,14 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	CA_setAdc(handles->hadc);
 	CV_setTimer(handles->htim);
 	CV_setAdc(handles->hadc);
-	I2C_Init(handles->hi2c);
+	I2C_init(handles->hi2c);
 	//------------POTENCIOMETRO--------------------
 	//----borrar quan haguem fet es proves-----
 	AD5280_Handle_T hpot = NULL;
 	hpot = AD5280_Init();
 	AD5280_ConfigSlaveAddress(hpot, 0x2C);
 	AD5280_ConfigNominalResistorValue(hpot, 50e3f);
-	AD5280_ConfigWriteFunction(hpot, I2C_Write); // MIRAR I2C!!
+	AD5280_ConfigWriteFunction(hpot, I2C_write); // MIRAR I2C!!
 	AD5280_SetWBResistance(hpot, 50e3f); //50kohms!!
 
 	//------------DAC------------------
@@ -42,7 +42,7 @@ void setup(struct Handles_S *handles) { //toma como parametro el puntero a la es
 	hdac = MCP4725_Init();
 	MCP4725_ConfigSlaveAddress(hdac, 0x66);
 	MCP4725_ConfigVoltageReference(hdac, 4.0f);
-	MCP4725_ConfigWriteFunction(hdac, I2C_Write);
+	MCP4725_ConfigWriteFunction(hdac, I2C_write);
 	CA_setDac(hdac);
 	CV_setDac(hdac);
 	MASB_COMM_S_waitForMessage(); //esperamos la llegada de datos
