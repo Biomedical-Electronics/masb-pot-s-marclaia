@@ -92,7 +92,6 @@ Una Cronoamperometría (CA) es una técnica electroquímica que transduce la act
 
 
 
-
 -Com ens hem administrat la feina, en funció dels objectius (hem fet abans la crono etc), con hem fet ervir el control de versions etc i le sbranques. Si hem hagut de quedar per fer desenvolopament o ho hem fet virtual, el que ens ha costat més i el que no...
 
 -explicación de la aplicación final
@@ -100,6 +99,18 @@ Una Cronoamperometría (CA) es una técnica electroquímica que transduce la act
 ## RESULTADOS<Resultados>
 
 -Ficar els resultats de les proves (Screens), i també el del experiment real
+
+<p align="center">
+<a href="assets/Micro.jpeg">
+<img src="assets/imgs/cronoViSense.png" alt="CA" / width=500/>
+</a>
+</p>
+
+<p align="center">
+<a href="assets/Micro.jpeg">
+<img src="assets/imgs/CVviSense.png" alt="CA" /width=500/>
+</a>
+</p>
 
 ## CONCLUSIONES<Conclusiones>
 
