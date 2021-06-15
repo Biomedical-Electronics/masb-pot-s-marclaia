@@ -19,17 +19,17 @@ Marc Palomer i Laia Borrell. Curso
 
 ## INTRO<Hola1>
 
-Introduir el ViSense i el porotocol de comuncicaió
-
 -En qué consiste el proyecto<Hola2>
 
-El proyecto consiste en la programación de un potenciostato a partir de la EV Nucleo-F401R de STMicroelectroncs. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato.
+Primeramente se introducen los parametros deseados asi como el tipo de medida (CA/CV) en el software ViSense, programado especialmente para el proyecto. Els sensor combinado con la EV toman las medidas y estas son enviadas al ordenador, que las muestra en forma de datos o grafica en el software ViSense. 
+
+El proyecto en si consiste en la programación de un potenciostato a partir de la EV Nucleo-F401R de STMicroelectroncs. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato. 
 
 *-Qué es un potenciostato y en que consisten las medidas*<Hola3>
 
-Un potenciostato es un dispositivo que mide y amplifica una señal proveniente de una reacción electroquímica, permitiendo medir las concentraciones de un analito 
+Un potenciostato es un dispositivo que mide y amplifica una señal proveniente de una reacción electroquímica, permitiendo medir las concentraciones de un analito.
 
-Un  potenciostato cualquiera puede medir en modo amperometrico, donde se fija el potencial y se mira la corriente de salida, o potenciometrico (volumétrico), donde se fija el corriente y se mira el voltage.  En este poryecto estamos trabajando en modo Amperometrico, fijando Vcell y midiendo Icell. 
+Un  potenciostato cualquiera puede medir en modo amperometrico, donde se fija el potencial y se mira la corriente de salida, o potenciometrico, donde se fija el corriente y se mira el voltage.  En este proyecto estamos trabajando en modo Amperometrico, fijando Vcell y midiendo Icell. 
 
 Las configuraciones típicas para sensores amperométricos, que miden la corriente que sale de una reacción electroquímica, consisten en un enfoque de dos electrodos, donde hay un electrodo de trabajo donde tiene lugar la reacción y un electrodo de referencia junto con un electrodo auxiliar, que rastrean el potencial resultante de la reacción y proporcionan la corriente requerida. Sin embargo, este enfoque presenta un problema que se basa en la acumulación de cargas en el electrodo de referencia, que se supone que tiene un potencial bien conocido. Para superar este problema, se define la configuración de tres electrodos.
 
@@ -65,12 +65,42 @@ Una Cronoamperometría (CA) es una técnica electroquímica que transduce la act
 
 -diagrama de flujo
 
+
+
+<p align="center">
+<a href="assets/CA.jpeg">
+<img src="assets/imgs/CA.jpeg" alt="CA" />
+</a>
+</p>
+
+
+
+
+
+<p align="center">
+<a href="assets/CV.jpeg">
+<img src="assets/imgs/CV.jpeg" alt="CA" />
+</a>
+</p>
+
+<p align="center">
+<a href="assets/Micro.jpeg">
+<img src="assets/imgs/Micro.jpeg" alt="CA" />
+</a>
+</p>
+
+
+
+
+
+-Com ens hem administrat la feina, en funció dels objectius (hem fet abans la crono etc), con hem fet ervir el control de versions etc i le sbranques. Si hem hagut de quedar per fer desenvolopament o ho hem fet virtual, el que ens ha costat més i el que no...
+
 -explicación de la aplicación final
 
 ## RESULTADOS<Resultados>
 
-
+-Ficar els resultats de les proves (Screens), i també el del experiment real
 
 ## CONCLUSIONES<Conclusiones>
 
-  
+  -Discussió del nostre pas per la asignatura, el que hem apres i el que no etc que hem apres del potenciostat etc
