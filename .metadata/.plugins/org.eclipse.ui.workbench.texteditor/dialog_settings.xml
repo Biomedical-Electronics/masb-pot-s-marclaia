@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="SetOu"/>
+		<item key="selection" value="Data"/>
 		<list key="findhistory">
+			<item value="data"/>
 			<item value="setou"/>
 			<item value="Rtia"/>
 			<item value="Rti"/>
@@ -22,7 +23,6 @@
 			<item value="hdac"/>
 			<item value="CA_setDac"/>
 			<item value="sp "/>
-			<item value="sp"/>
 		</list>
 		<list key="replacehistory">
 			<item value="samplingPeriod"/>

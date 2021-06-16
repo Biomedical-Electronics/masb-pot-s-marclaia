@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "components/stm32main.h" //to have available the functions loop and setup
+#include "components/stm32main.h" //to have available the functions loop and setup, and the myHandles structure
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,7 +81,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+  HAL_Init(); //HAL initialized
 
   /* USER CODE BEGIN Init */
 
@@ -102,13 +102,13 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-  struct Handles_S myHandles;
-  myHandles.huart = &huart2;
-  myHandles.hi2c=&hi2c1;
-  myHandles.hadc=&hadc1;
-  myHandles.htim=&htim3;
+  struct Handles_S myHandles;	//we pass the different pointers to the Handles structure
+  myHandles.huart = &huart2;	//huart pointer
+  myHandles.hi2c=&hi2c1;	//i2c pointer
+  myHandles.hadc=&hadc1;	//adc pointer
+  myHandles.htim=&htim3;	//timer pointer
 
-  setup(&myHandles); //le pasamos al setup el puntero de myHandles
+  setup(&myHandles); // we call the setup function and pass the pointer of the handles structure
   /* USER CODE END 2 */
 
   /* Infinite loop */

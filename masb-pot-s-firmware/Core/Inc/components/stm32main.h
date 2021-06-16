@@ -14,9 +14,11 @@
 #define	CV	0
 #define CA	1
 #define IDLE	2
-//variables
+
+//VARIABLE INITIALIZATION
 uint32_t ESTADO;
 
+// we define the structure to handle the pointers
 struct Handles_S {
      UART_HandleTypeDef *huart;
      ADC_HandleTypeDef *hadc;
@@ -24,8 +26,8 @@ struct Handles_S {
      TIM_HandleTypeDef *htim;
  };
 
-//prototypes, to be used in stm32main.h
 
+//PROTOTYPES (to be used in stm32main.c)
 void setup(struct Handles_S *handles);
 void loop(void);
 
