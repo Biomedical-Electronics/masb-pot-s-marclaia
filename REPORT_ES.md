@@ -4,13 +4,13 @@
 
 **Curso**: Microcontroladores para Aplicaciones y Sistemas Biomédicos (MASB), Ingeniería Biomédica UB.
 
-## Table of contents 
+## Tabla de contenidos
 
-* [Intro](#Hola1)
+* [Introducción](#Hola1)
   * [Qué és un potencionstato](#Hola2)
   * [Medidas electroquímicas realizadas](#Hola3)
-    * [Voltometría Cíclica (CV)](#Hola4)
-    * [Crono Amperometria (CA)](#Hola5)
+    * [Voltametría Cíclica (CV)](#Hola4)
+    * [Cronoamperometria (CA)](#Hola5)
 * [Objetivos](#Objetivos)
 * [Metodología](#Metodologia)
   * [Applicación final](#app final)
@@ -23,7 +23,7 @@
 * [Resultados](#Resultados)
 * [Conclusiones](#Conclusiones)
 
-# INTRO <Hola1>
+# Introducción <Hola1>
 
 El proyecto presentado consiste en la **programación de un potenciostato a partir de la EV Nucleo-F401R de STMicroelectroncs**. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato. Para ello se han programado dos medidas: una cronoamperometría (CA) y una voltametría cíclica (CV).
 
@@ -79,7 +79,22 @@ En esta sección se presentan una serie de diagramas de flujo que ejemplifican e
 
 #### Flujo del usuario con el dispositivo <user>
 
-*explicar*
+El usuario deberá abrir la aplicación de escritorio **viSens.S**  y seguidamente conectar con el dispositivo. Entonces seleccionará la técnica electroquímica que quiera realizar, CV o CA, y configurará los respectivos parámetros.
+
+<u>Parámetros CA:</u>
+
+* `eDC` (*double*): potencial constante de la celda electroquímica durante la CA en voltios.
+* `samplingPeriodMs`(*uint32_t*):  tiempo en ms entre cada punto tomado.
+* `measurementTime`(*uint32_t*): duración (en segundos) de la CA.
+
+<u>Parámetros CV</u>:
+
+* `eBegin`(*double*): potencial de celda en el que se inicia la voltametría cíclica. El potencial de la celda electroquímica se lleva del potencial de inicio al vértice de potencial 1. También indica el potencial en el que finalizará la voltametría cíclica.
+* etc (acabar)
+
+Una vez configurados los parámetros iniciará la medición. El dispositivo recibirá los parámetros configurados y empezará a tomar puntos, los cuales ira enviando al usuario hasta que termine la medición. Si se quiere iniciar una nueva medida se debe reiniciar el proceso, empezando por seleccionar la técnica correspondiente. En caso contrario se cierra la aplicación.
+
+**CANVIAR EL DIAGRAMA, BORRAR LO DE QUE SEA PARADA POR EL USUARIO (es pot fer amb recortes**
 
 <p align="center">
 <a href="assets/Micro.jpeg">
