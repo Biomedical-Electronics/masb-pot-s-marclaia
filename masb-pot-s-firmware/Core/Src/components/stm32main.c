@@ -79,12 +79,13 @@ void loop(void) {
 
 			break;
 
-		case STOP_MEAS: // If STOP_MEAS was received
+		//case STOP_MEAS: // If STOP_MEAS was received
 
-			ESTADO = IDLE;
-			__NOP();
+			//ESTADO = IDLE;
+			//__NOP();
 
-			break;
+			//
+			//break;
 
 		default: // If an unknown command is received, wait for another message
 
