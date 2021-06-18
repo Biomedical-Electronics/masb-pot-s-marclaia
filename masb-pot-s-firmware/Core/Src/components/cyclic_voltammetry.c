@@ -52,8 +52,8 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 	//----------SETTING DAC VOLTAGE-----------------------------
 	// vcell --> vdac --> vdac->MCP
 
-	vCell = (eBegin/2.0)+2.0; //Vcell introduced with dac
-	MCP4725_SetOutputVoltage(hdac, vCell); //Setting Vcell to eDC
+	vCell = eBegin;  //Vcell introduced with dac
+	MCP4725_SetOutputVoltage(hdac, (eBegin/2.0)+2.0);  //Setting Vcell to eDC
 
 	double vObjetivo = eVertex1;
 
@@ -99,6 +99,7 @@ void CV_meas(struct CV_Configuration_S cvConfiguration) {
 				else{ //If vCell is equal to eBegin (taking into consideration the 3 conditions above it is the only possibe option
 					vObjetivo = eVertex1; //We approach again eVertex1 (restarting the cycle)
 					counter_cycles++; //terminamos ciclo y añadimos uno al contadorThe cycle counter adds one
+				}
 			}
 		}
 	} //When the number of cycles asked have been done we leave the loop
