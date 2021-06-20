@@ -90,11 +90,13 @@ El usuario deberá abrir la aplicación de escritorio **viSens.S**  y seguidamen
 <u>Parámetros CV</u>:
 
 * `eBegin`(*double*): potencial de celda en el que se inicia la voltametría cíclica. El potencial de la celda electroquímica se lleva del potencial de inicio al vértice de potencial 1. También indica el potencial en el que finalizará la voltametría cíclica.
-* etc (acabar)
+* `eVertex1`(*double*): nuevo potencial al que se dirige la celda una vez seteado el potencial de inicio. Una vez alcanzado el primer vértice, la celda se dirige al vértice 2.
+* `eVertex2`(*double*): potencial hacia el que va la celda des del vértice de potencial 1. Cuando se llega a este potencial, si quedan más ciclos, el potencial vuelve al vértice 1. En caso contrario el potencial va hacia el de inicio y termina la medición.
+* `cycles`(*uint8_t*): número de ciclos de la voltametría cíclica.
+* `scanRate`(*double*): variación de la tensión de la celda electroquímica en el tiempo (V/s).
+* `eStep`(*double*): incremento o decremento de la tensión de la celda. (V)
 
-Una vez configurados los parámetros iniciará la medición. El dispositivo recibirá los parámetros configurados y empezará a tomar puntos, los cuales ira enviando al usuario hasta que termine la medición. Si se quiere iniciar una nueva medida se debe reiniciar el proceso, empezando por seleccionar la técnica correspondiente. En caso contrario se cierra la aplicación.
-
-**CANVIAR EL DIAGRAMA, BORRAR LO DE QUE SEA PARADA POR EL USUARIO (es pot fer amb recortes**
+Una vez configurados los parámetros iniciará la medición. El dispositivo recibirá los parámetros configurados y empezará a tomar puntos, los cuales irá enviando al usuario hasta que termine la medición. Si se quiere iniciar una nueva medida se debe reiniciar el proceso, empezando por seleccionar la técnica correspondiente. En caso contrario se cierra la aplicación.
 
 <p align="center">
 <a href="assets/Micro.jpeg">
@@ -106,7 +108,17 @@ Una vez configurados los parámetros iniciará la medición. El dispositivo reci
 
 #### Flujo operativo del microcontrolador <micro>
 
-*explicar*
+En cuanto se inicia el microcontrolador, este inicia sus periféricos y variables. Entre los periféricos configurados se encuentran:
+
+* **Timer 3**: para llevar la cuenta del sampling period.
+* **I2C**: para la comunicación con el digital to analog converter (DAC) e imponer el voltaje deseado en la celda.
+* **ADC**: para leer el valor real de voltaje y corriente en la celda.
+
+Con esto hecho, el micro espera una instrucción y, en cuanto recibe una, comprueba con un *switch* si el comando recibido es de CV o CA. Por defecto, en caso de no conocer el comando, esperará otra instrucción. Si se reciben CA o CV, se guardará la configuración recibida correspondiente y cambiará el estado de la variable "ESTADO" a CA o CV, respectivamente. Seguidamente pasa a esperar una nueva instrucción mediante una función no bloqueante, de forma que el código sigue corriendo.
+
+Lo siguiente que hace el microcontrolador es mirar el valor de la variable "ESTADO" mediante un switch, tanto si es CA o CV el microcontrolador tomará una medición y enviará ese punto al host. En caso de que esa medición sea la última, la variable "ESTADO" cambia a IDLE y se mira si hay nuevas instrucciones.
+
+En caso de no no haber nuevas instrucciones, vuelve a comprobarse la variable ESTADO.
 
 <p align="center">
 <a href="assets/Micro.jpeg">
@@ -116,7 +128,9 @@ Una vez configurados los parámetros iniciará la medición. El dispositivo reci
 
 #### Flujo operativo de la CA <flujoCA>
 
-*explicar*
+El flujo de ejecución de la cronoamperometría consiste en fijar la tensión de la celda electroquímica a un valor constante (el valor eDC configurado por el usuario) e ir midiendo la intensidad de la celda. 
+
+Para ello, después de fijar el potencial, se cierra el relé. O lo que es lo mismo, se cierra el circuito entre el sensor electroquímico y el front-end. Entonces, envía la primera medida de I y V al host y espera a que transcurra el sampling period. Cuando haya pasado ese tiempo, hace una segunda medida y manda los datos al host. Entonces el contador que lleva la cuenta del measurement time incrementa, y si se sobrepasa el measurement time se abre el relé y acaba la medida. En caso que el measurement time no se haya sobrepasado, se vuelve a comprobar si ha pasado el sampling period.
 
 <p align="center">
 <a href="assets/CA.jpeg">
@@ -128,7 +142,13 @@ Una vez configurados los parámetros iniciará la medición. El dispositivo reci
 
 #### Flujo operativo de la CV <flujoCV>
 
-*explicar*
+El flujo operativo de la voltametría cíclica empieza for fijar la tensión de la celda (vCell) a un valor de voltaje inicial (eBegin). Entonces se setea como voltaje objetivo el primer vértice configurado y se cierra el relé. 
+
+Mientras no se trate del último ciclo de la CV, se comprobará si ha pasado el sampling period. En caso negativo vuelve a comprobar que no sea el último ciclo.  En caso de que ya haya pasado se comprueba si el voltaje objetivo es menor al de vCell. De ser así setea un valor de step negativo, y en caso contrario un valor de step positivo. Entonces mira si el step sumado a vCell sobrepasa el voltaje objetivo. Si lo sobrepasa, vCell se setea a vObjetivo y, si no, se le añade el step. Entonces se mandan los datos al host y se setea  la tensión de la celda a vCell.
+
+Si vObjetivo es igual a vCell, se mira si vObjetivo era el vértice 1, el 2 o el voltaje inicial (eBegin). Si era el vértice 1 se setea como vObjetivo el vértice 2, si era el vértice 2 setea como objetivo eBegin, y si era e Begin se setea el vértice 1 y se aumenta el contador de ciclos realizados. 
+
+Finalmente vuelve a mirar si es el último ciclo y en caso positivo se abre el relé y termina la medida.
 
 
 <p align="center">
@@ -174,20 +194,40 @@ Lo más complicado del proyecto han sido los siguientes dos aspectos (**ACABAR!!
 
 ## RESULTADOS<Resultados>
 
--Ficar els resultats de les proves (Screens), i també el del experiment real
+Las pruebas experimentales se hicieron con
+
+## Resultados CA
+
+Dir valors de eDC, de sampling period i measurement time que vam posar i comentar una mica el resultat i que li passa a l'analit (es consumeix)...
 
 <p align="center">
-<a href="assets/Micro.jpeg">
-<img src="assets/imgs/cronoViSense.png" alt="CA" / width=500/>
+<a href="assets/CA.jpeg">
+<img src="assets/imgs/CA_5mM.png" alt="CA" / width=500>
 </a>
 </p>
 
 <p align="center">
-<a href="assets/Micro.jpeg">
-<img src="assets/imgs/CVviSense.png" alt="CA" /width=500/>
+<a href="assets/CA.jpeg">
+<img src="assets/imgs/CA_plot_1mM.png" alt="CA" / width=500>
+</a>
+</p>
+
+## Resultados CV
+
+idem (aquest el de 1mM no surt rollu patito, l'afegeixo igual però nse si deixar-lo... you choose)
+
+<p align="center">
+<a href="assets/CA.jpeg">
+<img src="assets/imgs/CV_plot_5mM.png" alt="CA" / width=500>
+</a>
+</p>
+
+<p align="center">
+<a href="assets/CA.jpeg">
+<img src="assets/imgs/CV_1mM.png" alt="CA" / width=500>
 </a>
 </p>
 
 ## CONCLUSIONES<Conclusiones>
 
-  -Discussió del nostre pas per la asignatura, el que hem apres i el que no etc que hem apres del potenciostat etc
+  -Discussió del nostre pas per la asignatura, el que hem apres amb el projecte i el que no etc que hem apres del potenciostat etc
