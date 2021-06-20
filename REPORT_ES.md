@@ -25,7 +25,7 @@
 
 # Introducción <Hola1>
 
-El proyecto presentado consiste en la **programación de un potenciostato a partir de la EV Nucleo-F401R de STMicroelectroncs**. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato. Para ello se han programado dos medidas: una cronoamperometría (CA) y una voltametría cíclica (CV).
+El proyecto presentado consiste en la **programación de un potenciostato a partir de la EB Nucleo-F401R de STMicroelectroncs**. La finalidad de este és la caracterización de la concentración de varias disoluciones de Ferricianuro de potasio en un tampón de cloruro de potasio por medio del potenciostato. Para ello se han programado dos medidas: una cronoamperometría (CA) y una voltametría cíclica (CV).
 
 Primeramente se introducen los parametros deseados asi como el tipo de medida (CA/CV) en el software ViSense, programado especialmente para el proyecto. Els sensor combinado con la EV toman las medidas y estas son enviadas al ordenador, que las muestra en forma de datos o grafica en el software ViSense. 
 
@@ -35,7 +35,7 @@ Un potenciostato es un dispositivo que mide y amplifica una señal proveniente d
 
 Un potenciostato cualquiera puede medir en modo amperométrico, donde se fija el potencial y se mira la corriente de salida, o potenciométrico, donde se fija la corriente y se mira el voltage.  En este proyecto estamos trabajando en modo **amperométrico**, fijando el voltaje de la celda (*Vcell*) y midiendo la corriente (*Icell*). 
 
-Las configuraciones típicas para sensores amperométricos, que miden la corriente que sale de una reacción electroquímica, consisten en un enfoque de dos electrodos, donde hay un electrodo de trabajo en que tiene lugar la reacción y un electrodo de referencia junto con un electrodo auxiliar, que rastrean el potencial resultante de la reacción y proporcionan la corriente requerida. Sin embargo, este enfoque presenta un problema que se basa en la acumulación de cargas en el electrodo de referencia, que debe tener un potencial bien conocido. Para solucionar este problema, se define la configuración de tres electrodos:
+Las configuraciones típicas para sensores amperométricos, que miden la corriente que sale de una reacción electroquímica, consisten en un enfoque de dos electrodos, donde hay un electrodo de trabajo en que tiene lugar la reacción y un electrodo de referencia, que rastrea el potencial resultante de la reacción y proporciona la corriente requerida. Sin embargo, este enfoque presenta un problema que se basa en la acumulación de cargas en el electrodo de referencia, que debe tener un potencial bien conocido. Para solucionar este problema, se define la configuración de tres electrodos:
 
 * <u>Electrodo de trabajo (WE)</u>: el electrodo de trabajo es aquel donde se produce la reacción Electroquímica, cambiando la tensión del electrodo.
 * <u>Electrodo de referencia (RE)</u>: se utiliza para medir cambios en el potencial del electrodo de trabajo.
@@ -55,10 +55,6 @@ A continuación se explica en que consisten las dos medidas programadas en este 
 
 ### Voltametría cíclica <Hola4>
 Una **Voltammetría Cíclica** es un tipo de medición electroquímica potenciodinámica en la que se aplica un potencial variable a una celda electroquímica mientras se mide la corriente que esta celda proporciona. El potencial entre el electrodo de trabajo (WE) y el de referencia (RE) de la celda varía con el tiempo hasta que alcanza un valor potencial establecido, luego cambia de dirección, realizando lo que se denomina barrido triangular de potencial. Este proceso se repite durante un número establecido de ciclos. El resultado se representa en un voltamograma cíclico, que representa la corriente a través de la celda frente al voltaje aplicado en esta. La CV es una técnica ampliamente utilizada para estudiar las propiedades electroquímicas de un analito en una solución. Una CV proporciona gran cantidad de información sobre el comportamiento químico y físico de un sistema. Además, se pueden observar diferentes fenómenos físicos realizando voltammetrías a diferentes velocidades de exploración (modificando la velocidad de cambio de voltaje con el tiempo).
-
-
-
-(Insertar imatge de voltatge vs temps)
 
 ### Cronoamperometría <Hola5>
 Una Cronoamperometría (CA) es una técnica electroquímica que transduce la actividad de las especies biomoleculares de una celda electroquímica en una señal de corriente que cuantifica la concentración del analito de interés. En esta técnica se aplica una señal escalón y se mide la corriente a través de la celda en función del tiempo. Una de las ventajas de esta técnica es que no requiere etiquetado de analito o biorreceptor. El experimento comienza manteniendo la celda a un potencial en el que no ocurre ningún proceso faradaico. Entonces, el potencial se eleva a un valor en el cual ocurre una reacción redox.*
@@ -140,6 +136,7 @@ Para ello, después de fijar el potencial, se cierra el relé. O lo que es lo mi
 
 
 
+
 #### Flujo operativo de la CV <flujoCV>
 
 El flujo operativo de la voltametría cíclica empieza for fijar la tensión de la celda (vCell) a un valor de voltaje inicial (eBegin). Entonces se setea como voltaje objetivo el primer vértice configurado y se cierra el relé. 
@@ -150,12 +147,12 @@ Si vObjetivo es igual a vCell, se mira si vObjetivo era el vértice 1, el 2 o el
 
 Finalmente vuelve a mirar si es el último ciclo y en caso positivo se abre el relé y termina la medida.
 
-
 <p align="center">
 <a href="assets/CV.jpeg">
 <img src="assets/imgs/CV.jpeg" alt="CA" />
 </a>
 </p>
+
 
 ### Organización de tareas <tareas>
 
@@ -186,19 +183,39 @@ El repositorio git en que se ha desarrollado el proyecto seguía la siguiente es
 * **feature/readme**: des de esta rama se han creado y modificado los archivos `REPORT_ES` y `REPORT_EN` , que contienen los reports en castellano e inglés, respectivamente, del proyecto realizado. Una vez terminados se han volcado a la rama `develop` mediante un `Pull request` .
 * **hotfix/ad5280-rtia**: rama donde se ha corregido un error respecto... no ho sé preguntar.
 
-Lo más complicado del proyecto han sido los siguientes dos aspectos (**ACABAR!!!**):
+La parte más complicada del proyecto han sido los siguientes dos aspectos:
 
-1) tot el tema de les variables repetides a la crono i la CV i implementar la CV per a que pugues agafar vertexs tan positius com negatius
+1) La interferencia entre variables de mismo nombre en CA y CV, y la implementación de eVertex en diferentes posiciones (ambas positivas, negativas y una de cada una).
 
-2) control de les branques de git
+2) Hemos encontrado algunos problemas como, por ejemplo, las primeras solicitudes de extracción realizadas a la rama de desarrollo se hicieron al maester porque no prestamos suficiente atención a la etiqueta de referencia. Este problema se solucionó y el control de versiones se ha utilizado correctamente desde entonces.
 
 ## RESULTADOS<Resultados>
 
-Las pruebas experimentales se hicieron con
+La primera parte de los resultados son los resultados de la simulación generados con un circuito de diodos de resistencia y los resultados se presentan a continuación.
+
+<p align="center">
+<a href="assets/Micro.jpeg">
+<img src="assets/imgs/cronoViSense.png" alt="CA" / width=500/>
+</a>
+</p>
+
+
+
+<p align="center">
+<a href="assets/Micro.jpeg">
+<img src="assets/imgs/CVviSense.png" alt="CA" /width=500/>
+</a>
+</p>
 
 ## Resultados CA
 
-Dir valors de eDC, de sampling period i measurement time que vam posar i comentar una mica el resultat i que li passa a l'analit (es consumeix)...
+En la CA se puede apreciar un pico de corriente al inicio de la reacción, i disminuye a partir que el analito se reduce hasta llegar a corriente 0. Los parametros introducidos en el programa son los siguientes:
+
+eDC = 0.3V
+
+measurementTime= 10s
+
+
 
 <p align="center">
 <a href="assets/CA.jpeg">
@@ -214,7 +231,17 @@ Dir valors de eDC, de sampling period i measurement time que vam posar i comenta
 
 ## Resultados CV
 
-idem (aquest el de 1mM no surt rollu patito, l'afegeixo igual però nse si deixar-lo... you choose)
+En los resultados del CV (1 microMolar), el grafico presenta los ciclos uno al lado de los otros y no supuestos como debería ser. Los parametros introducidos en el programa són los siguientes:
+
+* cycles = 3
+
+* eStep = 0,01
+
+* Scan rate = = 0,01
+
+* measurement time = 10s
+
+* eBegin=0,4-0,6-0.6
 
 <p align="center">
 <a href="assets/CA.jpeg">
@@ -230,4 +257,4 @@ idem (aquest el de 1mM no surt rollu patito, l'afegeixo igual però nse si deixa
 
 ## CONCLUSIONES<Conclusiones>
 
-  -Discussió del nostre pas per la asignatura, el que hem apres amb el projecte i el que no etc que hem apres del potenciostat etc
+La asignatura de Microcotroladores para sistemas biomedicos nos ha dado las herramientas para programar en C++ programas que nos permitan solucionar problemas biomedicos. El desarrollo de la faceta back-end de un potenciostato que hace CronoAmperometrias i Voltometrias Ciclicas tiene la finalidad de caracterizar electroquimicamente soluciones de Ferrocianuro de potasio. Este proyecto nos ha permitido desarrollar capacidades de autoaprendizage en programación, así como de gestión de proyectos de programación de manera profesional en una plataforma HAL.
