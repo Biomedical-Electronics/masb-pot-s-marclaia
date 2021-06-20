@@ -11,8 +11,19 @@
 #ifndef INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_
 #define INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_
 
-#include "stm32f4xx_hal.h"
+//MACROS
+#define MAX_VAR    0.00001 //maximum variation
 
+#include "stm32f4xx_hal.h"
+#include "components/masb_comm_s.h"
+#include "components/ad5280_driver.h"
+#include "components/mcp4725_driver.h"
+#include "components/i2c_lib.h"
+#include "components/stm32main.h" //to have available all the pointers
+#include "main.h"
+#include "components/chronoamperometry.h"
+
+//CV configuration structure that stores the parameters received from viSense-S
 struct CV_Configuration_S {
 
 	double eBegin;
@@ -23,5 +34,12 @@ struct CV_Configuration_S {
 	double eStep;
 
 };
+
+//--------------PROTOTYPES------------------
+void CV_meas(struct CV_Configuration_S cvConfiguration);
+void CV_setTimer(TIM_HandleTypeDef *newHtim);
+void CV_setAdc(ADC_HandleTypeDef *newHadc);
+void CV_setDac(MCP4725_Handle_T newHdac);
+void CV_sendData(void);
 
 #endif /* INC_COMPONENTS_CYCLIC_VOLTAMMETRY_H_ */

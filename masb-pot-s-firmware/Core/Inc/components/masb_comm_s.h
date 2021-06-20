@@ -15,6 +15,7 @@
 #include "stm32f4xx_hal.h"
 #include "components/cyclic_voltammetry.h"
 #include "components/chronoamperometry.h"
+#include "components/cobs.h"
 
 #define UART_BUFF_SIZE		50
 #define UART_TERM_CHAR		0x00
@@ -23,13 +24,9 @@
 #define START_CA_MEAS		0x02
 #define STOP_MEAS			0x03
 
-#ifndef TRUE
-    #define TRUE				1
-#endif
+#define TRUE				1
+#define FALSE				0
 
-#ifndef FALSE
-    #define FALSE				0
-#endif
 
 struct Data_S {
 
@@ -42,9 +39,7 @@ struct Data_S {
 
 // Prototypes.
 
-//void MASB_COMM_S_setComunications(UART_HandleTypeDef *newHuart,
-//		I2C_HandleTypeDef *newHi2c,
-//		ADC_HandleTypeDef *newHadc);
+void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart);
 void MASB_COMM_S_waitForMessage(void);
 _Bool MASB_COMM_S_dataReceived(void);
 uint8_t MASB_COMM_S_command(void);

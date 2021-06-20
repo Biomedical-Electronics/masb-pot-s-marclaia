@@ -12,9 +12,7 @@
 #include "components/masb_comm_s.h"
 #include "components/cobs.h"
 
-extern UART_HandleTypeDef huart2; //usamos extern para tener disponible la estructura con la config. de la uart
-extern ADC_HandleTypeDef hadc1;
-extern I2C_HandleTypeDef hi2c1;
+static UART_HandleTypeDef *huart;
 
 uint8_t rxBuffer[UART_BUFF_SIZE] = { 0 },
 		txBuffer[UART_BUFF_SIZE] = { 0 };
@@ -47,11 +45,15 @@ union Long_Converter {
 
 } longConverter;
 
+void MASB_COMM_S_setUart(UART_HandleTypeDef *newHuart) {
+	huart = newHuart;
+}
+
 void MASB_COMM_S_waitForMessage(void) {
 
 	dataReceived = FALSE;
 	rxIndex = 0;
-	HAL_UART_Receive_IT(&huart2, &rxBuffer[rxIndex], 1);
+	HAL_UART_Receive_IT(huart, &rxBuffer[rxIndex], 1);
 
 }
 
@@ -67,7 +69,7 @@ _Bool MASB_COMM_S_dataReceived(void) {
 
 }
 
-uint8_t MASB_COMM_S_command(void) { //function that returns the first byte
+uint8_t MASB_COMM_S_command(void) {
 
 	return rxBufferDecoded[0];
 
@@ -83,7 +85,6 @@ struct CV_Configuration_S MASB_COMM_S_getCvConfiguration(void){
 	cvConfiguration.cycles = rxBufferDecoded[25];
 	cvConfiguration.scanRate = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 26);
 	cvConfiguration.eStep = saveByteArrayAsDoubleFromBuffer(rxBufferDecoded, 34);
-
 	return cvConfiguration;
 
 }
@@ -112,8 +113,8 @@ void MASB_COMM_S_sendData(struct Data_S data) {
 	txBuffer[txBufferLenght] = UART_TERM_CHAR;
 	txBufferLenght++;
 
-	while(!(huart2.gState == HAL_UART_STATE_READY));
-	HAL_UART_Transmit_IT(&huart2, txBuffer, txBufferLenght);
+	while(!(huart->gState == HAL_UART_STATE_READY));
+	HAL_UART_Transmit_IT(huart, txBuffer, txBufferLenght);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
@@ -122,7 +123,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 		dataReceived = TRUE;
 	} else {
 		rxIndex++;
-		HAL_UART_Receive_IT(&huart2, &rxBuffer[rxIndex], 1);
+		HAL_UART_Receive_IT(huart, &rxBuffer[rxIndex], 1);
 	}
 
 }

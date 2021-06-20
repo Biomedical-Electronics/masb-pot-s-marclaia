@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "components/stm32main.h" //to have available the functions loop and setup
+#include "components/stm32main.h" //to have available the functions loop and setup, and the myHandles structure
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -81,7 +81,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+  HAL_Init(); //HAL initialized
 
   /* USER CODE BEGIN Init */
 
@@ -101,12 +101,14 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
- // struct Handles_S myHandles;
- //myHandles.huart = &huart2;
- //myHandles.hi2c=&hi2c1;
- // myHandles.hadc=&hadc1;
 
-  setup(); //le pasamos al setup el puntero de myHandles
+  struct Handles_S myHandles;	//we pass the different pointers to the Handles structure
+  myHandles.huart = &huart2;	//huart pointer
+  myHandles.hi2c=&hi2c1;	//i2c pointer
+  myHandles.hadc=&hadc1;	//adc pointer
+  myHandles.htim=&htim3;	//timer pointer
+
+  setup(&myHandles); // we call the setup function and pass the pointer of the handles structure
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -187,13 +189,14 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = DISABLE;
+  hadc1.Init.ScanConvMode = ENABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.DiscontinuousConvMode = ENABLE;
+  hadc1.Init.NbrOfDiscConversion = 1;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-  hadc1.Init.NbrOfConversion = 1;
+  hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -202,9 +205,17 @@ static void MX_ADC1_Init(void)
   }
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
-  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Channel = ADC_CHANNEL_1;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
+  */
+  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Rank = 2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -268,7 +279,7 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 4199;
+  htim3.Init.Prescaler = 8399;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 10000;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
